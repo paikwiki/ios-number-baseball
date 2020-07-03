@@ -17,7 +17,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // TODO: 세 숫자가 겹치지 않도록 변경
+        answer = answer.map({ _ in
+            return Int(arc4random_uniform(10))
+        })
+        print(answer)
     }
     
     @IBAction func touchKeypad(_ sender: UIButton) {
