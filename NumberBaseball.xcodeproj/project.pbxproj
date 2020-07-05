@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A49904824B1D2600037AED1 /* Inning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904724B1D2600037AED1 /* Inning.swift */; };
+		4A49904A24B1F5920037AED1 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904924B1F5920037AED1 /* Answer.swift */; };
 		99938E042459904C00ADE2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99938E032459904C00ADE2DF /* AppDelegate.swift */; };
 		99938E062459904C00ADE2DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99938E052459904C00ADE2DF /* SceneDelegate.swift */; };
 		99938E082459904C00ADE2DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99938E072459904C00ADE2DF /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A49904724B1D2600037AED1 /* Inning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inning.swift; sourceTree = "<group>"; };
+		4A49904924B1F5920037AED1 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		99938E002459904C00ADE2DF /* NumberBaseball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberBaseball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99938E032459904C00ADE2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99938E052459904C00ADE2DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				99938E0C2459905000ADE2DF /* Assets.xcassets */,
 				99938E0E2459905000ADE2DF /* LaunchScreen.storyboard */,
 				99938E112459905000ADE2DF /* Info.plist */,
+				4A49904724B1D2600037AED1 /* Inning.swift */,
+				4A49904924B1F5920037AED1 /* Answer.swift */,
 			);
 			path = NumberBaseball;
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			files = (
 				99938E082459904C00ADE2DF /* ViewController.swift in Sources */,
 				99938E042459904C00ADE2DF /* AppDelegate.swift in Sources */,
+				4A49904A24B1F5920037AED1 /* Answer.swift in Sources */,
+				4A49904824B1D2600037AED1 /* Inning.swift in Sources */,
 				99938E062459904C00ADE2DF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
