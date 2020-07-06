@@ -30,14 +30,14 @@ class ViewController: UIViewController {
     @IBOutlet var inningResultLabel08: UILabel!
     @IBOutlet var inningResultLabel09: UILabel!
     
-    private var inningsData = [Int: LabelsForPitchesAndInningResult]()
+    private var labels = [Int: LabelsForPitchesAndInningResult]()
     private let answer = Answer()
     private var inning = Inning()
-    lazy private var game = Game(answer: answer, inning: inning, inningsData: inningsData)
+    lazy private var game = Game(answer: answer, inning: inning, labels: labels)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inningsData = [
+        labels = [
             1: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel01, inningResultLabel: inningResultLabel01),
             2: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel02, inningResultLabel: inningResultLabel02),
             3: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel03, inningResultLabel: inningResultLabel03),
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         
         if pitchNumber == "↺" {
             answerLabel.text = "X   X   X"
-            inningsData.forEach({ inning in
+            labels.forEach({ inning in
                 // UI UPDATE
                 inning.value.pitchesLabel.text! = "_  _  _"
                 inning.value.inningResultLabel.text! = "-- --"
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         inning.pitchABall(pitchNumber: pitchNumber)
         inning.updatePitchesString(pitchNumber: pitchNumber)
         // UI UPDATE
-        inningsData[inning.getInningCount()]?.pitchesLabel.text = inning.getPitchesString()
+        labels[inning.getInningCount()]?.pitchesLabel.text = inning.getPitchesString()
         
         if inning.isThrowThreeBalls() {
             if game.isThreeStrikes() || (game.getTotalInning() == inning.getInningCount()) {
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
             }
             game.generateInningResultString()
             // UI UPDATE
-            inningsData[inning.getInningCount()]?.inningResultLabel.text = game.getInningResultString()
+            labels[inning.getInningCount()]?.inningResultLabel.text = game.getInningResultString()
             inning.increaseInningCount()
             inning.resetPitches()
         }

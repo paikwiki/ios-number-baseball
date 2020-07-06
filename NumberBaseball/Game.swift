@@ -13,12 +13,12 @@ class Game {
     private var totalInning = 9
     private var inningResultString: String = "-- --"
     private var gameEnd = false
-    private var inningsData: [Int: LabelsForPitchesAndInningResult]
+    private var labels: [Int: LabelsForPitchesAndInningResult]
     
-    init(answer: Answer, inning: Inning, inningsData: [Int: LabelsForPitchesAndInningResult]) {
+    init(answer: Answer, inning: Inning, labels: [Int: LabelsForPitchesAndInningResult]) {
         self.answer = answer
         self.inning = inning
-        self.inningsData = inningsData
+        self.labels = labels
     }
     
     func getTotalInning() -> Int {
