@@ -13,18 +13,14 @@ class Answer {
     private var answer = [Character]()
     
     init() {
-        var answerSet = Set<Character>()
-        while answerSet.count < 3 {
-            answerSet.insert( Character(String(Int(arc4random_uniform(10)))) )
-        }
-        answer = Array(answerSet)
+        answer = createAnswer()
     }
     
     func getAnswer() -> [Character] {
-        return answer
+        return (answer)
     }
     
-    func getFormattedAnswer() -> String {
+    func getAnswerString() -> String {
         var formatString = "";
         for index in 0..<answer.count {
             formatString = formatString + String(answer[index])
@@ -32,6 +28,21 @@ class Answer {
                 formatString = formatString + "   "
             }
         }
-        return formatString
+        return (formatString)
     }
+    
+    private func createAnswer() -> [Character] {
+        var answerSet = Set<Character>()
+        while answerSet.count < 3 {
+            answerSet.insert( Character(String(Int(arc4random_uniform(10)))) )
+        }
+        print(Array(answerSet));
+        return Array(answerSet)
+    }
+    
+    func resetAnswer() {
+        answer.removeAll()
+        answer = createAnswer()
+    }
+
 }

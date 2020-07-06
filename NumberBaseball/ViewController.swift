@@ -8,72 +8,93 @@
 
 import UIKit
 
-struct UserAnswerAndBallCount {
-    var userAnswerLabel: UILabel
-    var ballCountLabel: UILabel
-}
-
 class ViewController: UIViewController {
     
     @IBOutlet var answerLabel: UILabel!
-    @IBOutlet var userAnswerLabel01: UILabel!
-    @IBOutlet var userAnswerLabel02: UILabel!
-    @IBOutlet var userAnswerLabel03: UILabel!
-    @IBOutlet var userAnswerLabel04: UILabel!
-    @IBOutlet var userAnswerLabel05: UILabel!
-    @IBOutlet var userAnswerLabel06: UILabel!
-    @IBOutlet var userAnswerLabel07: UILabel!
-    @IBOutlet var userAnswerLabel08: UILabel!
-    @IBOutlet var userAnswerLabel09: UILabel!
-    @IBOutlet var ballCountLabel01: UILabel!
-    @IBOutlet var ballCountLabel02: UILabel!
-    @IBOutlet var ballCountLabel03: UILabel!
-    @IBOutlet var ballCountLabel04: UILabel!
-    @IBOutlet var ballCountLabel05: UILabel!
-    @IBOutlet var ballCountLabel06: UILabel!
-    @IBOutlet var ballCountLabel07: UILabel!
-    @IBOutlet var ballCountLabel08: UILabel!
-    @IBOutlet var ballCountLabel09: UILabel!
+    @IBOutlet var pitchesLabel01: UILabel!
+    @IBOutlet var pitchesLabel02: UILabel!
+    @IBOutlet var pitchesLabel03: UILabel!
+    @IBOutlet var pitchesLabel04: UILabel!
+    @IBOutlet var pitchesLabel05: UILabel!
+    @IBOutlet var pitchesLabel06: UILabel!
+    @IBOutlet var pitchesLabel07: UILabel!
+    @IBOutlet var pitchesLabel08: UILabel!
+    @IBOutlet var pitchesLabel09: UILabel!
+    @IBOutlet var inningResultLabel01: UILabel!
+    @IBOutlet var inningResultLabel02: UILabel!
+    @IBOutlet var inningResultLabel03: UILabel!
+    @IBOutlet var inningResultLabel04: UILabel!
+    @IBOutlet var inningResultLabel05: UILabel!
+    @IBOutlet var inningResultLabel06: UILabel!
+    @IBOutlet var inningResultLabel07: UILabel!
+    @IBOutlet var inningResultLabel08: UILabel!
+    @IBOutlet var inningResultLabel09: UILabel!
     
-    private var isThreeStrikes = false;
-    private var inningsCount = 9
-    private var inningsData = [Int: UserAnswerAndBallCount]()
-    private var inning = Inning(inningCount: 1)
+    private var inningsData = [Int: LabelsForPitchesAndInningResult]()
     private let answer = Answer()
-    
-    private func generateUserAnswerString(inputValue: String) -> String? {
-        let currentUserAnswerString = self.inningsData[inning.getInningCount()]!.userAnswerLabel.text!
-        var tempCharacterArray = [String.Element]()
-        
-        tempCharacterArray = Array(currentUserAnswerString)
-        for index in 0..<tempCharacterArray.count {
-            if tempCharacterArray[index] == "_" {
-                tempCharacterArray[index] = String.Element(inputValue)
-                break
-            }
-        }
-        
-        return String(tempCharacterArray)
-    }
+    private var inning = Inning()
+    lazy private var game = Game(answer: answer, inning: inning, inningsData: inningsData)
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        print(answer.getFormattedAnswer())
-
-        inningsData = [1: UserAnswerAndBallCount(userAnswerLabel: userAnswerLabel01, ballCountLabel: ballCountLabel01)]
-        
+        inningsData = [
+            1: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel01, inningResultLabel: inningResultLabel01),
+            2: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel02, inningResultLabel: inningResultLabel02),
+            3: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel03, inningResultLabel: inningResultLabel03),
+            4: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel04, inningResultLabel: inningResultLabel04),
+            5: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel05, inningResultLabel: inningResultLabel05),
+            6: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel06, inningResultLabel: inningResultLabel06),
+            7: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel07, inningResultLabel: inningResultLabel07),
+            8: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel08, inningResultLabel: inningResultLabel08),
+            9: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel09, inningResultLabel: inningResultLabel09)
+        ]
     }
     
     @IBAction func touchKeypad(_ sender: UIButton) {
-        print(sender.currentTitle!);
-        inning.throwABall(numberCharacter: Character(sender.currentTitle!))
-        inningsData[1]?.userAnswerLabel.text = generateUserAnswerString(inputValue: sender.currentTitle!)
+        let pitchNumber = Character(sender.currentTitle!);
+        
+        // TODO: 빈 버튼 어떤 걸로 사용할 지 결정
+        if pitchNumber == " " {
+            return
+        }
+        
+        if pitchNumber == "↺" {
+            answerLabel.text = "X   X   X"
+            game.reset()
+            
+            return
+        }
+        
+        if game.isOver() {
+            return
+        }
+        
+        if (inning.getPitches().contains(pitchNumber)) {
+            return
+        }
+        
+        inning.throwABall(pitchNumber: pitchNumber)
+        inning.updatePitchesString(pitchNumber: pitchNumber)
+        // UI UPDATE
+        inningsData[inning.getInningCount()]?.pitchesLabel.text = inning.getPitchesString()
         
         if inning.isThrowThreeBalls() {
-            inningsData[1]?.ballCountLabel.text = "1S 1B"
-            print(inning.getPitches() == answer.getAnswer())
+            if game.isThreeStrikes() || (game.getTotalInning() == inning.getInningCount()) {
+                let resultMessage =  game.isThreeStrikes() ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
+                let resultAlert = UIAlertController(title: "Game Over", message: resultMessage, preferredStyle: .alert)
+                let resultAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
+                resultAlert.addAction(resultAlertAction)
+                game.gameOver()
+                // UI UPDATE
+                answerLabel.text = answer.getAnswerString()
+                present(resultAlert, animated: true)
+            }
+            game.generateInningResultString()
+            // UI UPDATE
+            inningsData[inning.getInningCount()]?.inningResultLabel.text = game.getInningResultString()
+            inning.increaseInningCount()
+            inning.resetPitches()
         }
     }
+    
 }
-

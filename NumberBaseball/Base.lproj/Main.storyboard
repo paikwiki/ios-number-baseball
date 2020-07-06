@@ -123,7 +123,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4DL-JP-oYB">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="42"/>
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
-                                                <state key="normal" title="↺"/>
+                                                <state key="normal" title="↺">
+                                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nhd-2t-doO"/>
                                                 </connections>
@@ -139,7 +141,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wn0-Ok-j0G">
                                                 <rect key="frame" x="208.66666666666666" y="0.0" width="86.333333333333343" height="42"/>
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
-                                                <state key="normal" title="◀︎"/>
+                                                <state key="normal" title=" "/>
                                                 <connections>
                                                     <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGY-Ub-X5U"/>
                                                 </connections>
@@ -402,24 +404,24 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="Bha-gc-dZe" id="ywp-29-3gh"/>
-                        <outlet property="ballCountLabel01" destination="EjK-SG-ma8" id="45s-pp-w5y"/>
-                        <outlet property="ballCountLabel02" destination="JnM-ZG-xcQ" id="sZI-qX-3wX"/>
-                        <outlet property="ballCountLabel03" destination="P17-BZ-det" id="bhn-gs-kti"/>
-                        <outlet property="ballCountLabel04" destination="Lsa-5w-CGU" id="KgN-bQ-8lq"/>
-                        <outlet property="ballCountLabel05" destination="aOp-6S-7KM" id="od0-C7-3zc"/>
-                        <outlet property="ballCountLabel06" destination="ZKb-RF-MF6" id="IzF-77-Dtq"/>
-                        <outlet property="ballCountLabel07" destination="T5X-xF-iBf" id="jTy-o0-GRo"/>
-                        <outlet property="ballCountLabel08" destination="Ti0-Jy-zhy" id="mSC-Cw-egc"/>
-                        <outlet property="ballCountLabel09" destination="GbF-UZ-RPM" id="35F-eL-PM9"/>
-                        <outlet property="userAnswerLabel01" destination="3Kq-P8-sIf" id="PUk-47-AuR"/>
-                        <outlet property="userAnswerLabel02" destination="k0J-as-UDE" id="mjd-DM-Vwo"/>
-                        <outlet property="userAnswerLabel03" destination="hTg-bV-aKI" id="tJs-6y-weA"/>
-                        <outlet property="userAnswerLabel04" destination="5O3-iP-6N0" id="mtm-EP-bON"/>
-                        <outlet property="userAnswerLabel05" destination="fa4-Za-WUk" id="zZO-Nw-QW7"/>
-                        <outlet property="userAnswerLabel06" destination="DWJ-Ua-R8f" id="yBc-pL-veB"/>
-                        <outlet property="userAnswerLabel07" destination="HCn-TN-5Nb" id="bnn-79-RLc"/>
-                        <outlet property="userAnswerLabel08" destination="zrc-fV-dkY" id="b2L-xs-PBv"/>
-                        <outlet property="userAnswerLabel09" destination="TTe-W9-Sqo" id="MT6-Gh-AZb"/>
+                        <outlet property="inningResultLabel01" destination="EjK-SG-ma8" id="45s-pp-w5y"/>
+                        <outlet property="inningResultLabel02" destination="JnM-ZG-xcQ" id="sZI-qX-3wX"/>
+                        <outlet property="inningResultLabel03" destination="P17-BZ-det" id="bhn-gs-kti"/>
+                        <outlet property="inningResultLabel04" destination="Lsa-5w-CGU" id="KgN-bQ-8lq"/>
+                        <outlet property="inningResultLabel05" destination="aOp-6S-7KM" id="od0-C7-3zc"/>
+                        <outlet property="inningResultLabel06" destination="ZKb-RF-MF6" id="IzF-77-Dtq"/>
+                        <outlet property="inningResultLabel07" destination="T5X-xF-iBf" id="jTy-o0-GRo"/>
+                        <outlet property="inningResultLabel08" destination="Ti0-Jy-zhy" id="mSC-Cw-egc"/>
+                        <outlet property="inningResultLabel09" destination="GbF-UZ-RPM" id="35F-eL-PM9"/>
+                        <outlet property="pitchesLabel01" destination="3Kq-P8-sIf" id="PUk-47-AuR"/>
+                        <outlet property="pitchesLabel02" destination="k0J-as-UDE" id="mjd-DM-Vwo"/>
+                        <outlet property="pitchesLabel03" destination="hTg-bV-aKI" id="tJs-6y-weA"/>
+                        <outlet property="pitchesLabel04" destination="5O3-iP-6N0" id="mtm-EP-bON"/>
+                        <outlet property="pitchesLabel05" destination="fa4-Za-WUk" id="zZO-Nw-QW7"/>
+                        <outlet property="pitchesLabel06" destination="DWJ-Ua-R8f" id="yBc-pL-veB"/>
+                        <outlet property="pitchesLabel07" destination="HCn-TN-5Nb" id="bnn-79-RLc"/>
+                        <outlet property="pitchesLabel08" destination="zrc-fV-dkY" id="b2L-xs-PBv"/>
+                        <outlet property="pitchesLabel09" destination="TTe-W9-Sqo" id="MT6-Gh-AZb"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="HpY-3J-755"/>
                     </connections>
                 </viewController>
