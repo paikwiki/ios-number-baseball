@@ -60,6 +60,11 @@ class ViewController: UIViewController {
         
         if pitchNumber == "↺" {
             answerLabel.text = "X   X   X"
+            inningsData.forEach({ inning in
+                // UI UPDATE
+                inning.value.pitchesLabel.text! = "_  _  _"
+                inning.value.inningResultLabel.text! = "-- --"
+            })
             game.reset()
             
             return

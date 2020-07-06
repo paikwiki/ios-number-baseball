@@ -47,10 +47,6 @@ class Game {
     
     func reset() {
         gameEnd = false
-        inningsData.forEach({ inning in
-            inning.value.pitchesLabel.text! = "_  _  _"
-            inning.value.inningResultLabel.text! = "-- --"
-        })
         inning.resetPitches()
         inning.resetInningCount()
         answer.resetAnswer()
