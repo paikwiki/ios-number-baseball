@@ -59,6 +59,7 @@ class ViewController: UIViewController {
         }
         
         if pitchNumber == "↺" {
+            // UI UPDATE
             answerLabel.text = "X   X   X"
             labels.forEach({ inning in
                 // UI UPDATE
