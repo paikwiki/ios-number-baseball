@@ -10,41 +10,29 @@ class Game {
     
     private let answer: Answer
     private let inning: Inning
-    private var totalInning = 9
-    private var inningResultString: String = "-- --"
-    private var gameEnd = false
+    private(set) var totalInning = 9
+    private(set) var inningResultString: String = "-- --"
+    private(set) var isOver = false
     
     init(answer: Answer, inning: Inning) {
         self.answer = answer
         self.inning = inning
     }
     
-    func getTotalInning() -> Int {
-        return (totalInning)
-    }
-    
-    func getInningResultString() -> String {
-        return (inningResultString)
-    }
-
     func isThreeStrikes() -> Bool {
-        if inning.getPitches() == answer.getAnswer() {
+        if inning.pitches == answer.answer {
             return (true)
         }
         return (false)
     }
     
     func gameOver() {
-        gameEnd = true;
+        isOver = true;
         print("GAME OVER")
     }
     
-    func isOver() -> Bool {
-        return (gameEnd)
-    }
-    
     func reset() {
-        gameEnd = false
+        isOver = false
         inning.resetPitches()
         inning.resetInningCount()
         answer.resetAnswer()
@@ -53,8 +41,8 @@ class Game {
     func generateInningResultString() {
         var strikeCount = 0
         var ballCount = 0
-        let answerNumbers = answer.getAnswer()
-        let pitchNumbers = inning.getPitches()
+        let answerNumbers = answer.answer
+        let pitchNumbers = inning.pitches
         
         for index in 0..<answerNumbers.count {
             if pitchNumbers.contains(answerNumbers[index]) {

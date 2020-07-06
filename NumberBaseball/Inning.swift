@@ -8,21 +8,9 @@
 
 class Inning {
     
-    private var inningCount = 1
-    private var pitches = [Character]()
-    private var pitchesString = "_  _  _"
-        
-    func getPitches() -> [Character] {
-        return (pitches)
-    }
-    
-    func getInningCount() -> Int {
-        return (inningCount)
-    }
-    
-    func getPitchesString() -> String {
-        return (pitchesString)
-    }
+    private(set) var inningCount = 1
+    private(set) var pitches = [Character]()
+    private(set) var pitchesString = "_  _  _"
 
     func isThrowThreeBalls() -> Bool {
         return (pitches.count > 2)

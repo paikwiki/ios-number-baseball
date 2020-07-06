@@ -10,14 +10,10 @@ import UIKit
 
 class Answer {
     
-    private var answer = [Character]()
+    private(set) var answer = [Character]()
     
     init() {
         answer = createAnswer()
-    }
-    
-    func getAnswer() -> [Character] {
-        return (answer)
     }
     
     func getAnswerString() -> String {
