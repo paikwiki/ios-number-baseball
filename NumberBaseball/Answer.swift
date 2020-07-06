@@ -30,7 +30,6 @@ class Answer {
         }
         return (formatString)
     }
-    
     private func createAnswer() -> [Character] {
         var answerSet = Set<Character>()
         while answerSet.count < 3 {

@@ -9,11 +9,11 @@
 class Game {
     
     private let answer: Answer
-    private var inning: Inning
+    private let inning: Inning
+    private let labels: [Int: LabelsForPitchesAndInningResult]
     private var totalInning = 9
     private var inningResultString: String = "-- --"
     private var gameEnd = false
-    private var labels: [Int: LabelsForPitchesAndInningResult]
     
     init(answer: Answer, inning: Inning, labels: [Int: LabelsForPitchesAndInningResult]) {
         self.answer = answer
