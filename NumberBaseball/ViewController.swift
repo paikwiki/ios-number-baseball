@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     private var labels = [Int: LabelsForPitchesAndInningResult]()
     private let answer = Answer()
     private let inning = Inning()
-    lazy private var game = Game(answer: answer, inning: inning, labels: labels)
+    lazy private var game = Game(answer: answer, inning: inning)
     
     override func viewDidLoad() {
         super.viewDidLoad()
