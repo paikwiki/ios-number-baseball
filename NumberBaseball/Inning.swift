@@ -33,7 +33,7 @@ class Inning {
         pitchesString = "_  _  _"
     }
     
-    func throwABall(pitchNumber: Character) {
+    func pitchABall(pitchNumber: Character) {
         pitches.append(pitchNumber)
     }
     

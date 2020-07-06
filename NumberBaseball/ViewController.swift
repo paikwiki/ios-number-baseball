@@ -73,7 +73,7 @@ class ViewController: UIViewController {
             return
         }
         
-        inning.throwABall(pitchNumber: pitchNumber)
+        inning.pitchABall(pitchNumber: pitchNumber)
         inning.updatePitchesString(pitchNumber: pitchNumber)
         // UI UPDATE
         inningsData[inning.getInningCount()]?.pitchesLabel.text = inning.getPitchesString()
