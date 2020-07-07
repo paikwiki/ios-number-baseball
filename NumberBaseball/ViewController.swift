@@ -51,25 +51,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchKeypad(_ sender: UIButton) {
-        
         guard let title = sender.currentTitle else { return }
         let pitchNumber = Character(title)
         
         // TODO: 빈 버튼 어떤 걸로 사용할 지 결정
         if pitchNumber == " " {
-            return
-        }
-        
-        if pitchNumber == "↺" {
-            // UI UPDATE
-            answerLabel.text = "X   X   X"
-            labels.forEach({ inning in
-                // UI UPDATE
-                inning.value.pitchesLabel.text! = "_  _  _"
-                inning.value.inningResultLabel.text! = "-- --"
-            })
-            game.reset()
-            
             return
         }
         
@@ -103,6 +89,17 @@ class ViewController: UIViewController {
             inning.increaseInningCount()
             inning.resetPitches()
         }
+    }
+    
+    @IBAction func didTapReset(_ sender: UIButton) {
+        // UI UPDATE
+        answerLabel.text = "X   X   X"
+        labels.forEach({ inning in
+            // UI UPDATE
+            inning.value.pitchesLabel.text! = "_  _  _"
+            inning.value.inningResultLabel.text! = "-- --"
+        })
+        game.reset()
     }
     
 }
