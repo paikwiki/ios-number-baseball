@@ -71,7 +71,7 @@ class ViewController: UIViewController {
                 resultAlert.addAction(resultAlertAction)
                 game.gameOver()
                 // UI UPDATE
-                answerLabel.text = answer.getAnswerString()
+                answerLabel.text = answer.description
                 present(resultAlert, animated: true)
             }
             // UI UPDATE

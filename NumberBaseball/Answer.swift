@@ -16,16 +16,6 @@ class Answer {
         answer = createAnswer()
     }
     
-    func getAnswerString() -> String {
-        var formatString = ""
-        for index in 0..<answer.count {
-            formatString = formatString + String(answer[index])
-            if index < (answer.count - 1) {
-                formatString = formatString + "   "
-            }
-        }
-        return (formatString)
-    }
     private func createAnswer() -> [Character] {
         var answerSet = Set<Character>()
         while answerSet.count < 3 {
@@ -40,4 +30,12 @@ class Answer {
         answer = createAnswer()
     }
 
+}
+
+extension Answer: CustomStringConvertible {
+    
+    var description: String {
+        return "\(answer[0])   \(answer[1])   \(answer[2])"
+    }
+    
 }
