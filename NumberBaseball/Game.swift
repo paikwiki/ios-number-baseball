@@ -11,8 +11,26 @@ class Game {
     private let answer: Answer
     private let inning: Inning
     private(set) var totalInning = 9
-    private(set) var inningResultString: String = "-- --"
     private(set) var isOver = false
+    var inningResultString: String {
+        get {
+            var strikeCount = 0
+            var ballCount = 0
+            let answerNumbers = answer.answer
+            let pitchNumbers = inning.pitches
+            
+            for index in 0..<answerNumbers.count {
+                if pitchNumbers.contains(answerNumbers[index]) {
+                    if pitchNumbers[index] == answerNumbers[index]{
+                      strikeCount += 1
+                    } else {
+                        ballCount += 1
+                    }
+                }
+            }
+            return "\(strikeCount)S \(ballCount)B"
+        }
+    }
     
     init(answer: Answer, inning: Inning) {
         self.answer = answer
@@ -36,24 +54,6 @@ class Game {
         inning.resetPitches()
         inning.resetInningCount()
         answer.resetAnswer()
-    }
-    
-    func generateInningResultString() {
-        var strikeCount = 0
-        var ballCount = 0
-        let answerNumbers = answer.answer
-        let pitchNumbers = inning.pitches
-        
-        for index in 0..<answerNumbers.count {
-            if pitchNumbers.contains(answerNumbers[index]) {
-                if pitchNumbers[index] == answerNumbers[index]{
-                  strikeCount += 1
-                } else {
-                    ballCount += 1
-                }
-            }
-        }
-        inningResultString = "\(strikeCount)S \(ballCount)B"
     }
     
 }

@@ -74,7 +74,6 @@ class ViewController: UIViewController {
                 answerLabel.text = answer.getAnswerString()
                 present(resultAlert, animated: true)
             }
-            game.generateInningResultString()
             // UI UPDATE
             labels[inning.inningCount]?.inningResultLabel.text = game.inningResultString
             inning.increaseInningCount()
