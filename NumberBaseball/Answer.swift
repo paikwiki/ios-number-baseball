@@ -17,7 +17,7 @@ class Answer {
     }
     
     func getAnswerString() -> String {
-        var formatString = "";
+        var formatString = ""
         for index in 0..<answer.count {
             formatString = formatString + String(answer[index])
             if index < (answer.count - 1) {
@@ -31,7 +31,7 @@ class Answer {
         while answerSet.count < 3 {
             answerSet.insert( Character(String(Int(arc4random_uniform(10)))) )
         }
-        print(Array(answerSet));
+        print(Array(answerSet))
         return Array(answerSet)
     }
     

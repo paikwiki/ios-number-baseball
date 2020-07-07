@@ -27,7 +27,7 @@ class Game {
     }
     
     func gameOver() {
-        isOver = true;
+        isOver = true
         print("GAME OVER")
     }
     
@@ -49,7 +49,7 @@ class Game {
                 if pitchNumbers[index] == answerNumbers[index]{
                   strikeCount += 1
                 } else {
-                    ballCount += 1;
+                    ballCount += 1
                 }
             }
         }

@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchKeypad(_ sender: UIButton) {
-        let pitchNumber = Character(sender.currentTitle!);
+        let pitchNumber = Character(sender.currentTitle!)
         
         // TODO: 빈 버튼 어떤 걸로 사용할 지 결정
         if pitchNumber == " " {
