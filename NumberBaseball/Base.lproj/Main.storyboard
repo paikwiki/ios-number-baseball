@@ -38,7 +38,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xKm-ke-DmY"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xKm-ke-DmY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCr-go-uWV">
@@ -46,7 +46,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="2"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X9O-fP-pAL"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X9O-fP-pAL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7o-Yc-xx6">
@@ -54,7 +54,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="3"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9qc-vf-dZe"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9qc-vf-dZe"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -67,7 +67,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="4"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nKN-lV-Cnm"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nKN-lV-Cnm"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3I5-8B-arW">
@@ -75,7 +75,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="5"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1VK-IK-fnF"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1VK-IK-fnF"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGr-e9-fCY">
@@ -83,7 +83,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="6"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZZb-7c-Ynl"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZZb-7c-Ynl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -96,7 +96,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="7"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QDA-1d-nSc"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QDA-1d-nSc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-C2-DTf">
@@ -104,7 +104,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="8"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1s6-p3-asg"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1s6-p3-asg"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQP-8n-6Iy">
@@ -112,7 +112,7 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="9"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJF-73-25n"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJF-73-25n"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -135,16 +135,13 @@
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="26"/>
                                                 <state key="normal" title="0"/>
                                                 <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G6R-35-lmR"/>
+                                                    <action selector="didTapNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G6R-35-lmR"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wn0-Ok-j0G">
                                                 <rect key="frame" x="208.66666666666666" y="0.0" width="86.333333333333343" height="42"/>
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                                 <state key="normal" title=" "/>
-                                                <connections>
-                                                    <action selector="touchKeypad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGY-Ub-X5U"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         ]
     }
     
-    @IBAction func touchKeypad(_ sender: UIButton) {
+    @IBAction func didTapNumber(_ sender: UIButton) {
         guard let title = sender.currentTitle else { return }
         let pitchNumber = Character(title)
         
