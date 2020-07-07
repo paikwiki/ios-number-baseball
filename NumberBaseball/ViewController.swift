@@ -52,26 +52,18 @@ class ViewController: UIViewController {
     
     @IBAction func didTapNumber(_ sender: UIButton) {
         guard let title = sender.currentTitle else { return }
+        
         let pitchNumber = Character(title)
         
-        // TODO: 빈 버튼 어떤 걸로 사용할 지 결정
-        if pitchNumber == " " {
-            return
-        }
-        
-        if game.isOver {
-            return
-        }
-        
-        if (inning.pitches.contains(pitchNumber)) {
-            return
-        }
+        guard
+            !(game.isOver),
+            !(inning.pitches.contains(pitchNumber))
+            else { return }
         
         inning.pitchABall(pitchNumber: pitchNumber)
         inning.updatePitchesString(pitchNumber: pitchNumber)
         // UI UPDATE
         labels[inning.inningCount]?.pitchesLabel.text = inning.pitchesString
-        
         if inning.isThrowThreeBalls() {
             if game.isThreeStrikes() || (game.totalInning == inning.inningCount) {
                 let resultMessage =  game.isThreeStrikes() ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
