@@ -16,11 +16,11 @@ class Inning {
             guard let pitchesStringIndex = pitchesCharaterArray.firstIndex(of: "_") else { break }
             pitchesCharaterArray[pitchesStringIndex] = String.Element(String(pitches[index]))
         }
-        return (String(pitchesCharaterArray))
+        return String(pitchesCharaterArray)
     }
 
     func isThrowThreeBalls() -> Bool {
-        return (pitches.count > 2)
+        return pitches.count > 2
     }
 
     func resetPitches() {
