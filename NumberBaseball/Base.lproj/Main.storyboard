@@ -154,7 +154,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rbt-Nd-1bv">
                                 <rect key="frame" x="30" y="183.33333333333337" width="315" height="267"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qD2-Wc-jt6">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qD2-Wc-jt6" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="29.666666666666668"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kq-P8-sIf">
@@ -178,8 +178,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="EjK-SG-ma8" id="CMW-rB-Vwh"/>
+                                            <outlet property="pitchesLabel" destination="3Kq-P8-sIf" id="t6o-ka-xak"/>
+                                        </connections>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-xL-bP8">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-xL-bP8" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="29.666666666666657" width="315" height="29.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0J-as-UDE">
@@ -203,8 +207,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="JnM-ZG-xcQ" id="PNC-JM-aAL"/>
+                                            <outlet property="pitchesLabel" destination="k0J-as-UDE" id="V2Q-Os-bOd"/>
+                                        </connections>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpL-5T-vaZ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpL-5T-vaZ" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="59.333333333333307" width="315" height="29.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTg-bV-aKI">
@@ -228,8 +236,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="P17-BZ-det" id="uvN-p2-YpM"/>
+                                            <outlet property="pitchesLabel" destination="hTg-bV-aKI" id="E3S-Hc-4su"/>
+                                        </connections>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJk-D7-ZFj">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJk-D7-ZFj" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88.999999999999972" width="315" height="29.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5O3-iP-6N0">
@@ -253,8 +265,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="Lsa-5w-CGU" id="1Da-q0-e31"/>
+                                            <outlet property="pitchesLabel" destination="5O3-iP-6N0" id="t4z-vR-4eB"/>
+                                        </connections>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-2n-17j">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-2n-17j" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118.66666666666667" width="315" height="29.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa4-Za-WUk">
@@ -278,8 +294,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="aOp-6S-7KM" id="wdL-MW-OUe"/>
+                                            <outlet property="pitchesLabel" destination="fa4-Za-WUk" id="Jbz-wR-Dvc"/>
+                                        </connections>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDs-bH-ukG">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDs-bH-ukG" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148.33333333333334" width="315" height="29.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWJ-Ua-R8f">
@@ -303,8 +323,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="ZKb-RF-MF6" id="EwQ-uz-VGP"/>
+                                            <outlet property="pitchesLabel" destination="DWJ-Ua-R8f" id="cU8-V4-M8f"/>
+                                        </connections>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IK-5e-OOi">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IK-5e-OOi" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="177.99999999999997" width="315" height="29.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCn-TN-5Nb">
@@ -328,8 +352,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="T5X-xF-iBf" id="YSC-Jb-xjN"/>
+                                            <outlet property="pitchesLabel" destination="HCn-TN-5Nb" id="PrH-Be-LcU"/>
+                                        </connections>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0e-Xs-Wzf">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0e-Xs-Wzf" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="207.66666666666666" width="315" height="29.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrc-fV-dkY">
@@ -353,8 +381,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="Ti0-Jy-zhy" id="RoN-7t-7qE"/>
+                                            <outlet property="pitchesLabel" destination="zrc-fV-dkY" id="ogk-4X-FRk"/>
+                                        </connections>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4n-hv-HJk">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4n-hv-HJk" customClass="InningView" customModule="NumberBaseball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="237.33333333333334" width="315" height="29.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_  _  _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTe-W9-Sqo">
@@ -378,6 +410,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="inningResultLabel" destination="GbF-UZ-RPM" id="LFJ-8l-n0O"/>
+                                            <outlet property="pitchesLabel" destination="TTe-W9-Sqo" id="4ZJ-RM-die"/>
+                                        </connections>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -401,24 +437,15 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="Bha-gc-dZe" id="ywp-29-3gh"/>
-                        <outlet property="inningResultLabel01" destination="EjK-SG-ma8" id="45s-pp-w5y"/>
-                        <outlet property="inningResultLabel02" destination="JnM-ZG-xcQ" id="sZI-qX-3wX"/>
-                        <outlet property="inningResultLabel03" destination="P17-BZ-det" id="bhn-gs-kti"/>
-                        <outlet property="inningResultLabel04" destination="Lsa-5w-CGU" id="KgN-bQ-8lq"/>
-                        <outlet property="inningResultLabel05" destination="aOp-6S-7KM" id="od0-C7-3zc"/>
-                        <outlet property="inningResultLabel06" destination="ZKb-RF-MF6" id="IzF-77-Dtq"/>
-                        <outlet property="inningResultLabel07" destination="T5X-xF-iBf" id="jTy-o0-GRo"/>
-                        <outlet property="inningResultLabel08" destination="Ti0-Jy-zhy" id="mSC-Cw-egc"/>
-                        <outlet property="inningResultLabel09" destination="GbF-UZ-RPM" id="35F-eL-PM9"/>
-                        <outlet property="pitchesLabel01" destination="3Kq-P8-sIf" id="PUk-47-AuR"/>
-                        <outlet property="pitchesLabel02" destination="k0J-as-UDE" id="mjd-DM-Vwo"/>
-                        <outlet property="pitchesLabel03" destination="hTg-bV-aKI" id="tJs-6y-weA"/>
-                        <outlet property="pitchesLabel04" destination="5O3-iP-6N0" id="mtm-EP-bON"/>
-                        <outlet property="pitchesLabel05" destination="fa4-Za-WUk" id="zZO-Nw-QW7"/>
-                        <outlet property="pitchesLabel06" destination="DWJ-Ua-R8f" id="yBc-pL-veB"/>
-                        <outlet property="pitchesLabel07" destination="HCn-TN-5Nb" id="bnn-79-RLc"/>
-                        <outlet property="pitchesLabel08" destination="zrc-fV-dkY" id="b2L-xs-PBv"/>
-                        <outlet property="pitchesLabel09" destination="TTe-W9-Sqo" id="MT6-Gh-AZb"/>
+                        <outlet property="inningView01" destination="qD2-Wc-jt6" id="JvP-IF-tCS"/>
+                        <outlet property="inningView02" destination="Kx8-xL-bP8" id="CCU-BB-iZ0"/>
+                        <outlet property="inningView03" destination="BpL-5T-vaZ" id="G7M-ks-jfu"/>
+                        <outlet property="inningView04" destination="UJk-D7-ZFj" id="af0-Sf-mMS"/>
+                        <outlet property="inningView05" destination="MFI-2n-17j" id="BP6-6S-1de"/>
+                        <outlet property="inningView06" destination="LDs-bH-ukG" id="pES-r5-1x0"/>
+                        <outlet property="inningView07" destination="7IK-5e-OOi" id="eGP-OR-BmU"/>
+                        <outlet property="inningView08" destination="e0e-Xs-Wzf" id="pdP-At-vZu"/>
+                        <outlet property="inningView09" destination="I4n-hv-HJk" id="dKH-OM-rJn"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="HpY-3J-755"/>
                     </connections>
                 </viewController>

@@ -11,26 +11,17 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var answerLabel: UILabel!
-    @IBOutlet var pitchesLabel01: UILabel!
-    @IBOutlet var pitchesLabel02: UILabel!
-    @IBOutlet var pitchesLabel03: UILabel!
-    @IBOutlet var pitchesLabel04: UILabel!
-    @IBOutlet var pitchesLabel05: UILabel!
-    @IBOutlet var pitchesLabel06: UILabel!
-    @IBOutlet var pitchesLabel07: UILabel!
-    @IBOutlet var pitchesLabel08: UILabel!
-    @IBOutlet var pitchesLabel09: UILabel!
-    @IBOutlet var inningResultLabel01: UILabel!
-    @IBOutlet var inningResultLabel02: UILabel!
-    @IBOutlet var inningResultLabel03: UILabel!
-    @IBOutlet var inningResultLabel04: UILabel!
-    @IBOutlet var inningResultLabel05: UILabel!
-    @IBOutlet var inningResultLabel06: UILabel!
-    @IBOutlet var inningResultLabel07: UILabel!
-    @IBOutlet var inningResultLabel08: UILabel!
-    @IBOutlet var inningResultLabel09: UILabel!
+    @IBOutlet var inningView01: InningView!
+    @IBOutlet var inningView02: InningView!
+    @IBOutlet var inningView03: InningView!
+    @IBOutlet var inningView04: InningView!
+    @IBOutlet var inningView05: InningView!
+    @IBOutlet var inningView06: InningView!
+    @IBOutlet var inningView07: InningView!
+    @IBOutlet var inningView08: InningView!
+    @IBOutlet var inningView09: InningView!
     
-    private var labels = [Int: LabelsForPitchesAndInningResult]()
+    private var labels = [Int: InningView]()
     private let answer = Answer()
     private let inning = Inning()
     lazy private var game = Game(answer: answer, inning: inning)
@@ -38,15 +29,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         labels = [
-            1: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel01, inningResultLabel: inningResultLabel01),
-            2: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel02, inningResultLabel: inningResultLabel02),
-            3: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel03, inningResultLabel: inningResultLabel03),
-            4: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel04, inningResultLabel: inningResultLabel04),
-            5: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel05, inningResultLabel: inningResultLabel05),
-            6: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel06, inningResultLabel: inningResultLabel06),
-            7: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel07, inningResultLabel: inningResultLabel07),
-            8: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel08, inningResultLabel: inningResultLabel08),
-            9: LabelsForPitchesAndInningResult(pitchesLabel: pitchesLabel09, inningResultLabel: inningResultLabel09)
+            1: inningView01!,
+            2: inningView02!,
+            3: inningView03!,
+            4: inningView04!,
+            5: inningView05!,
+            6: inningView06!,
+            7: inningView07!,
+            8: inningView08!,
+            9: inningView09!,
         ]
     }
     

@@ -10,7 +10,7 @@
 		4A49904824B1D2600037AED1 /* Inning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904724B1D2600037AED1 /* Inning.swift */; };
 		4A49904A24B1F5920037AED1 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904924B1F5920037AED1 /* Answer.swift */; };
 		4A49904C24B293FB0037AED1 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904B24B293FB0037AED1 /* Game.swift */; };
-		4A49904E24B2EDCE0037AED1 /* LabelsForPitchesAndInningResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904D24B2EDCE0037AED1 /* LabelsForPitchesAndInningResult.swift */; };
+		99846F0A24B58F6E00714BF9 /* InningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99846F0924B58F6E00714BF9 /* InningView.swift */; };
 		99938E042459904C00ADE2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99938E032459904C00ADE2DF /* AppDelegate.swift */; };
 		99938E062459904C00ADE2DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99938E052459904C00ADE2DF /* SceneDelegate.swift */; };
 		99938E082459904C00ADE2DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99938E072459904C00ADE2DF /* ViewController.swift */; };
@@ -23,7 +23,7 @@
 		4A49904724B1D2600037AED1 /* Inning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inning.swift; sourceTree = "<group>"; };
 		4A49904924B1F5920037AED1 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		4A49904B24B293FB0037AED1 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		4A49904D24B2EDCE0037AED1 /* LabelsForPitchesAndInningResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsForPitchesAndInningResult.swift; sourceTree = "<group>"; };
+		99846F0924B58F6E00714BF9 /* InningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningView.swift; sourceTree = "<group>"; };
 		99938E002459904C00ADE2DF /* NumberBaseball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberBaseball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99938E032459904C00ADE2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99938E052459904C00ADE2DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,13 +68,13 @@
 				99938E052459904C00ADE2DF /* SceneDelegate.swift */,
 				99938E092459904C00ADE2DF /* Main.storyboard */,
 				99938E072459904C00ADE2DF /* ViewController.swift */,
-				4A49904D24B2EDCE0037AED1 /* LabelsForPitchesAndInningResult.swift */,
 				99938E0C2459905000ADE2DF /* Assets.xcassets */,
 				99938E0E2459905000ADE2DF /* LaunchScreen.storyboard */,
 				4A49904B24B293FB0037AED1 /* Game.swift */,
 				99938E112459905000ADE2DF /* Info.plist */,
 				4A49904724B1D2600037AED1 /* Inning.swift */,
 				4A49904924B1F5920037AED1 /* Answer.swift */,
+				99846F0924B58F6E00714BF9 /* InningView.swift */,
 			);
 			path = NumberBaseball;
 			sourceTree = "<group>";
@@ -151,11 +151,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				99938E082459904C00ADE2DF /* ViewController.swift in Sources */,
+				99846F0A24B58F6E00714BF9 /* InningView.swift in Sources */,
 				4A49904C24B293FB0037AED1 /* Game.swift in Sources */,
 				99938E042459904C00ADE2DF /* AppDelegate.swift in Sources */,
 				4A49904A24B1F5920037AED1 /* Answer.swift in Sources */,
 				4A49904824B1D2600037AED1 /* Inning.swift in Sources */,
-				4A49904E24B2EDCE0037AED1 /* LabelsForPitchesAndInningResult.swift in Sources */,
 				99938E062459904C00ADE2DF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
