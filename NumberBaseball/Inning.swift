@@ -11,14 +11,12 @@ class Inning {
     private(set) var inningCount = 1
     private(set) var pitches = [Character]()
     var pitchesString: String {
-        get {
-            var pitchesCharaterArray = Array("_  _  _")
-            for index in 0..<pitches.count {
-                guard let pitchesStringIndex = pitchesCharaterArray.firstIndex(of: "_") else { break }
-                pitchesCharaterArray[pitchesStringIndex] = String.Element(String(pitches[index]))
-            }
-            return (String(pitchesCharaterArray))
+        var pitchesCharaterArray = Array("_  _  _")
+        for index in 0..<pitches.count {
+            guard let pitchesStringIndex = pitchesCharaterArray.firstIndex(of: "_") else { break }
+            pitchesCharaterArray[pitchesStringIndex] = String.Element(String(pitches[index]))
         }
+        return (String(pitchesCharaterArray))
     }
 
     func isThrowThreeBalls() -> Bool {

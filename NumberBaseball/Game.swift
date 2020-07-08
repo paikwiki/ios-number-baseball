@@ -13,23 +13,21 @@ class Game {
     private(set) var totalInning = 9
     private(set) var isOver = false
     var inningResultString: String {
-        get {
-            var strikeCount = 0
-            var ballCount = 0
-            let answerNumbers = answer.answer
-            let pitchNumbers = inning.pitches
-            
-            for index in 0..<answerNumbers.count {
-                if pitchNumbers.contains(answerNumbers[index]) {
-                    if pitchNumbers[index] == answerNumbers[index]{
-                      strikeCount += 1
-                    } else {
-                        ballCount += 1
-                    }
+        var strikeCount = 0
+        var ballCount = 0
+        let answerNumbers = answer.answer
+        let pitchNumbers = inning.pitches
+        
+        for index in 0..<answerNumbers.count {
+            if pitchNumbers.contains(answerNumbers[index]) {
+                if pitchNumbers[index] == answerNumbers[index]{
+                  strikeCount += 1
+                } else {
+                    ballCount += 1
                 }
             }
-            return "\(strikeCount)S \(ballCount)B"
         }
+        return "\(strikeCount)S \(ballCount)B"
     }
     
     init(answer: Answer, inning: Inning) {
