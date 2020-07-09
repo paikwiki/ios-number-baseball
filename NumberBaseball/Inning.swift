@@ -19,7 +19,7 @@ class Inning {
         return String(pitchesCharaterArray)
     }
     var isThrowThreeBalls: Bool {
-        return pitches.count > 2
+        pitches.count > 2
     }
 
     func resetPitches() {

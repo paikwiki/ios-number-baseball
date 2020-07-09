@@ -36,10 +36,7 @@ class Game {
     }
 
     func isThreeStrikes() -> Bool {
-        if inning.pitches == answer.answer {
-            return true
-        }
-        return false
+        inning.pitches == answer.answer
     }
 
     func gameOver() {
