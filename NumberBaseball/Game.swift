@@ -7,7 +7,7 @@
 //
 
 class Game {
-    
+
     private let answer: Answer
     private let inning: Inning
     private(set) var totalInning = 9
@@ -17,10 +17,10 @@ class Game {
         var ballCount = 0
         let answerNumbers = answer.answer
         let pitchNumbers = inning.pitches
-        
+
         for index in 0..<answerNumbers.count {
             if pitchNumbers.contains(answerNumbers[index]) {
-                if pitchNumbers[index] == answerNumbers[index]{
+                if pitchNumbers[index] == answerNumbers[index] {
                   strikeCount += 1
                 } else {
                     ballCount += 1
@@ -29,29 +29,29 @@ class Game {
         }
         return "\(strikeCount)S \(ballCount)B"
     }
-    
+
     init(answer: Answer, inning: Inning) {
         self.answer = answer
         self.inning = inning
     }
-    
+
     func isThreeStrikes() -> Bool {
         if inning.pitches == answer.answer {
             return true
         }
         return false
     }
-    
+
     func gameOver() {
         isOver = true
         print("GAME OVER")
     }
-    
+
     func reset() {
         isOver = false
         inning.resetPitches()
         inning.resetInningCount()
         answer.resetAnswer()
     }
-    
+
 }

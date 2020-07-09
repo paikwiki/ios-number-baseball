@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet var answerLabel: UILabel!
     @IBOutlet var inningView01: InningView!
     @IBOutlet var inningView02: InningView!
@@ -20,12 +20,12 @@ class ViewController: UIViewController {
     @IBOutlet var inningView07: InningView!
     @IBOutlet var inningView08: InningView!
     @IBOutlet var inningView09: InningView!
-    
+
     private var labels = [Int: InningView]()
     private let answer = Answer()
     private let inning = Inning()
     lazy private var game = Game(answer: answer, inning: inning)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         labels = [
@@ -37,18 +37,18 @@ class ViewController: UIViewController {
             6: inningView06!,
             7: inningView07!,
             8: inningView08!,
-            9: inningView09!,
+            9: inningView09!
         ]
     }
-    
+
     @IBAction func didTapNumber(_ sender: UIButton) {
-        
+
         guard
             let pitchNumber = sender.currentTitle.map(Character.init),
             inning.pitches.contains(pitchNumber) == false,
             game.isOver == false
             else { return }
-        
+
         inning.pitchABall(pitchNumber: pitchNumber)
         // UI UPDATE
         labels[inning.inningCount]?.pitchesLabel.text = inning.pitchesString
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             inning.resetPitches()
         }
     }
-    
+
     @IBAction func didTapReset(_ sender: UIButton) {
         // UI UPDATE
         answerLabel.text = "X   X   X"
@@ -80,5 +80,5 @@ class ViewController: UIViewController {
         })
         game.reset()
     }
-    
+
 }

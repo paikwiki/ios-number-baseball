@@ -7,7 +7,7 @@
 //
 
 class Inning {
-    
+
     private(set) var inningCount = 1
     private(set) var pitches = [Character]()
     var pitchesString: String {
@@ -26,17 +26,17 @@ class Inning {
     func resetPitches() {
         pitches.removeAll()
     }
-    
+
     func pitchABall(pitchNumber: Character) {
         pitches.append(pitchNumber)
     }
-    
+
     func increaseInningCount() {
         inningCount += 1
     }
-    
+
     func resetInningCount() {
         inningCount = 1
     }
-    
+
 }
