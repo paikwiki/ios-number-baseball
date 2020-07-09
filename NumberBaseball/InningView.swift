@@ -12,5 +12,5 @@ class InningView: UIStackView {
 
     @IBOutlet weak var pitchesLabel: UILabel!
     @IBOutlet weak var inningResultLabel: UILabel!
-    
+
 }

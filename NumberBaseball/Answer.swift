@@ -9,13 +9,13 @@
 import UIKit
 
 class Answer {
-    
+
     private(set) var answer = [Character]()
-    
+
     init() {
         answer = createAnswer()
     }
-    
+
     private func createAnswer() -> [Character] {
         var answerSet = Set<Character>()
         while answerSet.count < 3 {
@@ -24,7 +24,7 @@ class Answer {
         print(Array(answerSet))
         return Array(answerSet)
     }
-    
+
     func resetAnswer() {
         answer.removeAll()
         answer = createAnswer()
@@ -33,9 +33,9 @@ class Answer {
 }
 
 extension Answer: CustomStringConvertible {
-    
+
     var description: String {
         return "\(answer[0])   \(answer[1])   \(answer[2])"
     }
-    
+
 }
