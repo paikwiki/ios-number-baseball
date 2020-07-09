@@ -18,8 +18,7 @@ class Inning {
         }
         return String(pitchesCharaterArray)
     }
-
-    func isThrowThreeBalls() -> Bool {
+    var isThrowThreeBalls: Bool {
         return pitches.count > 2
     }
 
