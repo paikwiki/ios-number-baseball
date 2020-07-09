@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         inning.pitchABall(pitchNumber: pitchNumber)
         // UI UPDATE
         labels[inning.inningCount]?.pitchesLabel.text = inning.pitchesString
-        if inning.isThrowThreeBalls() {
+        if inning.isThrowThreeBalls {
             if game.isThreeStrikes() || (game.totalInning == inning.inningCount) {
                 let resultMessage =  game.isThreeStrikes() ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
                 let resultAlert = UIAlertController(title: "Game Over", message: resultMessage, preferredStyle: .alert)
