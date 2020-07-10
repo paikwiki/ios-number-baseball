@@ -8,34 +8,25 @@
 
 import UIKit
 
-class Answer {
+struct Answer: CustomStringConvertible {
 
-    private(set) var answer = [Character]()
+    typealias AnswerNumbers = (first: Int, second: Int, third: Int)
+
+    let answer: AnswerNumbers
 
     init() {
-        answer = createAnswer()
-    }
-
-    private func createAnswer() -> [Character] {
-        var answerSet = Set<Character>()
-        while answerSet.count < 3 {
-            answerSet.insert( Character(String(Int(arc4random_uniform(10)))) )
+        var numberSet = Set<Int>()
+        while numberSet.count < 3 {
+            numberSet.insert(Int(arc4random_uniform(10)))
         }
-        print(Array(answerSet))
-        return Array(answerSet)
+        answer = AnswerNumbers(first: numberSet.popFirst()!,
+                               second: numberSet.popFirst()!,
+                               third: numberSet.popFirst()!)
+        print(answer)
     }
-
-    func resetAnswer() {
-        answer.removeAll()
-        answer = createAnswer()
-    }
-
-}
-
-extension Answer: CustomStringConvertible {
 
     var description: String {
-        "\(answer[0])   \(answer[1])   \(answer[2])"
+        "\(answer.first)   \(answer.second)   \(answer.third)"
     }
 
 }
