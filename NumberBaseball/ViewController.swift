@@ -39,10 +39,16 @@ class ViewController: UIViewController {
         ]
     }
 
-    @IBAction func didTapNumber(_ sender: UIButton) {
+    private func showResult(finalResult: Bool) {
+        let resultMessage = finalResult ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
+        let resultAlert = UIAlertController(title: "Game Over", message: resultMessage, preferredStyle: .alert)
+        let resultAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
+        resultAlert.addAction(resultAlertAction)
+        present(resultAlert, animated: true)
+    }
 
-        guard
-            let pitchNumber = Int(sender.currentTitle!)
+    @IBAction func didTapNumber(_ sender: UIButton) {
+        guard let pitchNumber = Int(sender.currentTitle!)
             else { return }
 
         game.pitchABall(pitchNumber: pitchNumber)
@@ -50,14 +56,10 @@ class ViewController: UIViewController {
         inningViews[game.inningCount]?.pitchesLabel.text = game.inning.pitchesString
         if game.inning.isThrowThreeBalls {
             if game.isThreeStrikes() || (game.totalInning == game.inningCount) {
-                let resultMessage =  game.isThreeStrikes() ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
-                let resultAlert = UIAlertController(title: "Game Over", message: resultMessage, preferredStyle: .alert)
-                let resultAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
-                resultAlert.addAction(resultAlertAction)
-                game.gameOver()
                 // UI UPDATE
                 answerLabel.text = game.answer.description
-                present(resultAlert, animated: true)
+                showResult(finalResult: game.isThreeStrikes())
+                game.gameOver()
             }
             // UI UPDATE
             inningViews[game.inningCount]?.inningResultLabel.text = game.inningResultString
