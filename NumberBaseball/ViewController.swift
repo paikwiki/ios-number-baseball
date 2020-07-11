@@ -21,14 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet var inningView08: InningView!
     @IBOutlet var inningView09: InningView!
 
-    private var labels = [Int: InningView]()
+    private var inningViews = [Int: InningView]()
     private let answer = Answer()
     private let inning = Inning()
     lazy private var game = Game(answer: answer, inning: inning)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        labels = [
+        inningViews = [
             1: inningView01!,
             2: inningView02!,
             3: inningView03!,
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
 
         inning.pitchABall(pitchNumber: pitchNumber)
         // UI UPDATE
-        labels[inning.inningCount]?.pitchesLabel.text = inning.pitchesString
+        inningViews[inning.inningCount]?.pitchesLabel.text = inning.pitchesString
         if inning.isThrowThreeBalls {
             if game.isThreeStrikes() || (game.totalInning == inning.inningCount) {
                 let resultMessage =  game.isThreeStrikes() ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
                 present(resultAlert, animated: true)
             }
             // UI UPDATE
-            labels[inning.inningCount]?.inningResultLabel.text = game.inningResultString
+            inningViews[inning.inningCount]?.inningResultLabel.text = game.inningResultString
             inning.increaseInningCount()
             inning.resetPitches()
         }
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     @IBAction func didTapReset(_ sender: UIButton) {
         // UI UPDATE
         answerLabel.text = "X   X   X"
-        labels.forEach({ inning in
+        inningViews.forEach({ inning in
             // UI UPDATE
             inning.value.pitchesLabel.text! = "_  _  _"
             inning.value.inningResultLabel.text! = "-- --"
