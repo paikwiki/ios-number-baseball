@@ -40,6 +40,11 @@ class Game {
 
         return "\(strikeCount)S \(ballCount)B"
     }
+    var isThreeStrikes: Bool {
+        inning.pitching[0] == answer.first &&
+        inning.pitching[1] == answer.second &&
+        inning.pitching[2] == answer.third
+    }
 
     init() {
         self.answer = Answer()
@@ -52,12 +57,9 @@ class Game {
             isOver == false
             else { return }
         inning.pitching.append(pitchNumber)
-    }
-
-    func isThreeStrikes() -> Bool {
-        inning.pitching[0] == answer.first &&
-        inning.pitching[1] == answer.second &&
-        inning.pitching[2] == answer.third
+        if inning.isThrowThreeBalls && isThreeStrikes {
+            isOver = true
+        }
     }
 
     func getNextInning() {
@@ -67,7 +69,6 @@ class Game {
 
     func gameOver() {
         isOver = true
-        print("GAME OVER")
     }
 
     func reset() {

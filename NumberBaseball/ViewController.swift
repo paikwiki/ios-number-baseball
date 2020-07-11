@@ -55,14 +55,16 @@ class ViewController: UIViewController {
         // UI UPDATE
         inningViews[game.inningCount]?.pitchesLabel.text = game.inning.description
         if game.inning.isThrowThreeBalls {
-            if game.isThreeStrikes() || (game.totalInning == game.inningCount) {
-                // UI UPDATE
-                answerLabel.text = game.answer.description
-                showResult(finalResult: game.isThreeStrikes())
-                game.gameOver()
-            }
             // UI UPDATE
             inningViews[game.inningCount]?.inningResultLabel.text = game.inningResultString
+            if game.totalInning == game.inningCount {
+                game.gameOver()
+            }
+            if game.isOver {
+                // UI UPDATE
+                answerLabel.text = game.answer.description
+                showResult(finalResult: game.isThreeStrikes)
+            }
             game.getNextInning()
         }
     }
