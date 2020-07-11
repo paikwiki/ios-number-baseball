@@ -42,9 +42,7 @@ class ViewController: UIViewController {
     @IBAction func didTapNumber(_ sender: UIButton) {
 
         guard
-            let pitchNumber = Int(sender.currentTitle!),
-            game.inning.pitching.contains(pitchNumber) == false,
-            game.isOver == false
+            let pitchNumber = Int(sender.currentTitle!)
             else { return }
 
         game.pitchABall(pitchNumber: pitchNumber)

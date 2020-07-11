@@ -47,6 +47,10 @@ class Game {
     }
 
     func pitchABall(pitchNumber: Int) {
+        guard
+            inning.pitching.contains(pitchNumber) == false,
+            isOver == false
+            else { return }
         inning.pitching.append(pitchNumber)
     }
 
