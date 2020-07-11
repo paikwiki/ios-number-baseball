@@ -8,8 +8,8 @@
 
 class Game {
 
-    private var answer: Answer
-    private let inning: Inning
+    private(set) var answer: Answer
+    private(set) var inning: Inning
     private(set) var totalInning = 9
     private(set) var isOver = false
     private(set) var inningCount = 1
@@ -41,9 +41,13 @@ class Game {
         return "\(strikeCount)S \(ballCount)B"
     }
 
-    init(answer: Answer, inning: Inning) {
-        self.answer = answer
-        self.inning = inning
+    init() {
+        self.answer = Answer()
+        self.inning = Inning()
+    }
+
+    func pitchABall(pitchNumber: Int) {
+        inning.pitching.append(pitchNumber)
     }
 
     func isThreeStrikes() -> Bool {
@@ -52,8 +56,9 @@ class Game {
         inning.pitching[2] == answer.third
     }
 
-    func increaseInningCount() {
+    func getNextInning() {
         inningCount += 1
+        inning = Inning()
     }
 
     func gameOver() {
@@ -63,9 +68,9 @@ class Game {
 
     func reset() {
         isOver = false
-        inning.resetPitches()
         inningCount = 1
         answer = Answer()
+        inning = Inning()
     }
 
 }

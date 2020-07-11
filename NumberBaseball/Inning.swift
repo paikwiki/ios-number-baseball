@@ -6,10 +6,9 @@
 //  Copyright © 2020 Changhyun Baek. All rights reserved.
 //
 
-// TODO: Change class keyword to struct
-class Inning {
+struct Inning {
 
-    private(set) var pitching = [Int]()
+    var pitching = [Int]()
 
     var pitchesString: String {
         var pitchesCharaterArray = Array("_  _  _")
@@ -21,14 +20,6 @@ class Inning {
     }
     var isThrowThreeBalls: Bool {
         pitching.count > 2
-    }
-
-    func resetPitches() {
-        pitching.removeAll()
-    }
-
-    func pitchABall(pitchNumber: Int) {
-        pitching.append(pitchNumber)
     }
 
 }

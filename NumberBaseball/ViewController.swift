@@ -22,9 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet var inningView09: InningView!
 
     private var inningViews = [Int: InningView]()
-    private let answer = Answer()
-    private let inning = Inning()
-    lazy private var game = Game(answer: answer, inning: inning)
+    private var game = Game()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +43,14 @@ class ViewController: UIViewController {
 
         guard
             let pitchNumber = Int(sender.currentTitle!),
-            inning.pitching.contains(pitchNumber) == false,
+            game.inning.pitching.contains(pitchNumber) == false,
             game.isOver == false
             else { return }
 
-        inning.pitchABall(pitchNumber: pitchNumber)
+        game.pitchABall(pitchNumber: pitchNumber)
         // UI UPDATE
-        inningViews[game.inningCount]?.pitchesLabel.text = inning.pitchesString
-        if inning.isThrowThreeBalls {
+        inningViews[game.inningCount]?.pitchesLabel.text = game.inning.pitchesString
+        if game.inning.isThrowThreeBalls {
             if game.isThreeStrikes() || (game.totalInning == game.inningCount) {
                 let resultMessage =  game.isThreeStrikes() ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
                 let resultAlert = UIAlertController(title: "Game Over", message: resultMessage, preferredStyle: .alert)
@@ -60,23 +58,22 @@ class ViewController: UIViewController {
                 resultAlert.addAction(resultAlertAction)
                 game.gameOver()
                 // UI UPDATE
-                answerLabel.text = answer.description
+                answerLabel.text = game.answer.description
                 present(resultAlert, animated: true)
             }
             // UI UPDATE
             inningViews[game.inningCount]?.inningResultLabel.text = game.inningResultString
-            game.increaseInningCount()
-            inning.resetPitches()
+            game.getNextInning()
         }
     }
 
     @IBAction func didTapReset(_ sender: UIButton) {
         // UI UPDATE
         answerLabel.text = "X   X   X"
-        inningViews.forEach({ inning in
+        inningViews.forEach({ inningView in
             // UI UPDATE
-            inning.value.pitchesLabel.text! = "_  _  _"
-            inning.value.inningResultLabel.text! = "-- --"
+            inningView.value.pitchesLabel.text! = "_  _  _"
+            inningView.value.inningResultLabel.text! = "-- --"
         })
         game.reset()
     }
