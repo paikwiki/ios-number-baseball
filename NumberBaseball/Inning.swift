@@ -9,25 +9,26 @@
 class Inning {
 
     private(set) var inningCount = 1
-    private(set) var pitches = [Character]()
+    private(set) var pitching = [Int]()
+
     var pitchesString: String {
         var pitchesCharaterArray = Array("_  _  _")
-        for index in 0..<pitches.count {
+        for index in 0..<pitching.count {
             guard let pitchesStringIndex = pitchesCharaterArray.firstIndex(of: "_") else { break }
-            pitchesCharaterArray[pitchesStringIndex] = String.Element(String(pitches[index]))
+            pitchesCharaterArray[pitchesStringIndex] = String.Element(String(pitching[index]))
         }
         return String(pitchesCharaterArray)
     }
     var isThrowThreeBalls: Bool {
-        pitches.count > 2
+        pitching.count > 2
     }
 
     func resetPitches() {
-        pitches.removeAll()
+        pitching.removeAll()
     }
 
-    func pitchABall(pitchNumber: Character) {
-        pitches.append(pitchNumber)
+    func pitchABall(pitchNumber: Int) {
+        pitching.append(pitchNumber)
     }
 
     func increaseInningCount() {
