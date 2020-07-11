@@ -51,9 +51,9 @@ class ViewController: UIViewController {
 
         inning.pitchABall(pitchNumber: pitchNumber)
         // UI UPDATE
-        inningViews[inning.inningCount]?.pitchesLabel.text = inning.pitchesString
+        inningViews[game.inningCount]?.pitchesLabel.text = inning.pitchesString
         if inning.isThrowThreeBalls {
-            if game.isThreeStrikes() || (game.totalInning == inning.inningCount) {
+            if game.isThreeStrikes() || (game.totalInning == game.inningCount) {
                 let resultMessage =  game.isThreeStrikes() ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
                 let resultAlert = UIAlertController(title: "Game Over", message: resultMessage, preferredStyle: .alert)
                 let resultAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
@@ -64,8 +64,8 @@ class ViewController: UIViewController {
                 present(resultAlert, animated: true)
             }
             // UI UPDATE
-            inningViews[inning.inningCount]?.inningResultLabel.text = game.inningResultString
-            inning.increaseInningCount()
+            inningViews[game.inningCount]?.inningResultLabel.text = game.inningResultString
+            game.increaseInningCount()
             inning.resetPitches()
         }
     }

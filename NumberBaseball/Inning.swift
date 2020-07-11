@@ -6,9 +6,9 @@
 //  Copyright © 2020 Changhyun Baek. All rights reserved.
 //
 
+// TODO: Change class keyword to struct
 class Inning {
 
-    private(set) var inningCount = 1
     private(set) var pitching = [Int]()
 
     var pitchesString: String {
@@ -29,14 +29,6 @@ class Inning {
 
     func pitchABall(pitchNumber: Int) {
         pitching.append(pitchNumber)
-    }
-
-    func increaseInningCount() {
-        inningCount += 1
-    }
-
-    func resetInningCount() {
-        inningCount = 1
     }
 
 }

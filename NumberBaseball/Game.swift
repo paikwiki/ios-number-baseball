@@ -12,6 +12,7 @@ class Game {
     private let inning: Inning
     private(set) var totalInning = 9
     private(set) var isOver = false
+    private(set) var inningCount = 1
     var inningResultString: String {
         var strikeCount = 0
         var ballCount = 0
@@ -51,6 +52,10 @@ class Game {
         inning.pitching[2] == answer.third
     }
 
+    func increaseInningCount() {
+        inningCount += 1
+    }
+
     func gameOver() {
         isOver = true
         print("GAME OVER")
@@ -59,7 +64,7 @@ class Game {
     func reset() {
         isOver = false
         inning.resetPitches()
-        inning.resetInningCount()
+        inningCount = 1
         answer = Answer()
     }
 
