@@ -6,27 +6,27 @@
 //  Copyright © 2020 Changhyun Baek. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Answer: CustomStringConvertible {
 
-    typealias AnswerNumbers = (first: Int, second: Int, third: Int)
-
-    let answer: AnswerNumbers
+    let first: Int
+    let second: Int
+    let third: Int
 
     init() {
         var numberSet = Set<Int>()
         while numberSet.count < 3 {
             numberSet.insert(Int(arc4random_uniform(10)))
         }
-        answer = AnswerNumbers(first: numberSet.popFirst()!,
-                               second: numberSet.popFirst()!,
-                               third: numberSet.popFirst()!)
-        print(answer)
+        first = numberSet.popFirst()!
+        second = numberSet.popFirst()!
+        third = numberSet.popFirst()!
+        print(self.description)
     }
 
     var description: String {
-        "\(answer.first)   \(answer.second)   \(answer.third)"
+        "\(first)   \(second)   \(third)"
     }
 
 }

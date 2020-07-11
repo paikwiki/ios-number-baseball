@@ -15,22 +15,22 @@ class Game {
     var inningResultString: String {
         var strikeCount = 0
         var ballCount = 0
-        if inning.pitches.firstIndex(of: Character(String(answer.answer.first))) != nil {
-            if answer.answer.first == Int(String(inning.pitches[0]))! {
+        if inning.pitches.firstIndex(of: Character(String(answer.first))) != nil {
+            if answer.first == Int(String(inning.pitches[0]))! {
                 strikeCount += 1
             } else {
                 ballCount += 1
             }
         }
-        if inning.pitches.firstIndex(of: Character(String(answer.answer.second))) != nil {
-            if answer.answer.second == Int(String(inning.pitches[1]))! {
+        if inning.pitches.firstIndex(of: Character(String(answer.second))) != nil {
+            if answer.second == Int(String(inning.pitches[1]))! {
                 strikeCount += 1
             } else {
                 ballCount += 1
             }
         }
-        if inning.pitches.firstIndex(of: Character(String(answer.answer.third))) != nil {
-            if answer.answer.third == Int(String(inning.pitches[2]))! {
+        if inning.pitches.firstIndex(of: Character(String(answer.third))) != nil {
+            if answer.third == Int(String(inning.pitches[2]))! {
                 strikeCount += 1
             } else {
                 ballCount += 1
@@ -46,9 +46,9 @@ class Game {
     }
 
     func isThreeStrikes() -> Bool {
-        Int(String(inning.pitches[0])) == answer.answer.first &&
-        Int(String(inning.pitches[1])) == answer.answer.second &&
-        Int(String(inning.pitches[2])) == answer.answer.third
+        Int(String(inning.pitches[0])) == answer.first &&
+        Int(String(inning.pitches[1])) == answer.second &&
+        Int(String(inning.pitches[2])) == answer.third
     }
 
     func gameOver() {
