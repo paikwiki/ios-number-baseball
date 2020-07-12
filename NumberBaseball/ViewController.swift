@@ -10,16 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var answerLabel: UILabel!
-    @IBOutlet var inningView01: InningView!
-    @IBOutlet var inningView02: InningView!
-    @IBOutlet var inningView03: InningView!
-    @IBOutlet var inningView04: InningView!
-    @IBOutlet var inningView05: InningView!
-    @IBOutlet var inningView06: InningView!
-    @IBOutlet var inningView07: InningView!
-    @IBOutlet var inningView08: InningView!
-    @IBOutlet var inningView09: InningView!
+    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var inningView01: InningView!
+    @IBOutlet weak var inningView02: InningView!
+    @IBOutlet weak var inningView03: InningView!
+    @IBOutlet weak var inningView04: InningView!
+    @IBOutlet weak var inningView05: InningView!
+    @IBOutlet weak var inningView06: InningView!
+    @IBOutlet weak var inningView07: InningView!
+    @IBOutlet weak var inningView08: InningView!
+    @IBOutlet weak var inningView09: InningView!
 
     private var inningViews = [Int: InningView]()
     private var game = Game()
