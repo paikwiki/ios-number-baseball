@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         game.pitchABall(pitchNumber: pitchNumber)
         // UI UPDATE
         inningViews[game.inningCount]?.pitchesLabel.text = game.inning.description
-        if game.inning.isThrowThreeBalls {
+        if game.inning.isEnded {
             // UI UPDATE
             inningViews[game.inningCount]?.inningResultLabel.text = game.inningResultString
             if game.totalInning == game.inningCount {
