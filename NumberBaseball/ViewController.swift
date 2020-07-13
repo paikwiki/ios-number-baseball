@@ -27,15 +27,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         inningViews = [
-            1: inningView01!,
-            2: inningView02!,
-            3: inningView03!,
-            4: inningView04!,
-            5: inningView05!,
-            6: inningView06!,
-            7: inningView07!,
-            8: inningView08!,
-            9: inningView09!
+            1: inningView01,
+            2: inningView02,
+            3: inningView03,
+            4: inningView04,
+            5: inningView05,
+            6: inningView06,
+            7: inningView07,
+            8: inningView08,
+            9: inningView09
         ]
     }
 
