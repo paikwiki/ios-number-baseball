@@ -21,8 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var inningView08: InningView!
     @IBOutlet weak var inningView09: InningView!
 
-    private var inningViews = [Int: InningView]()
-    private var game = Game()
+    private var inningViews: [Int: InningView] = [Int: InningView]()
+    private var game: Game = Game()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +40,10 @@ class ViewController: UIViewController {
     }
 
     private func showResult(finalResult: Bool) {
-        let resultMessage = finalResult ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
-        let resultAlert = UIAlertController(title: "Game Over", message: resultMessage, preferredStyle: .alert)
-        let resultAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
+        let resultMessage: String = finalResult ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
+        let resultAlert: UIAlertController = UIAlertController(title: "Game Over",
+                                                               message: resultMessage, preferredStyle: .alert)
+        let resultAlertAction: UIAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
         resultAlert.addAction(resultAlertAction)
         present(resultAlert, animated: true)
     }

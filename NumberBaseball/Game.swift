@@ -10,12 +10,12 @@ class Game {
 
     private(set) var answer: Answer
     private(set) var inning: Inning
-    private(set) var totalInning = 9
-    private(set) var isOver = false
-    private(set) var inningCount = 1
+    private(set) var totalInning: Int = 9
+    private(set) var isOver: Bool  = false
+    private(set) var inningCount: Int = 1
     var inningResultString: String {
-        var strikeCount = 0
-        var ballCount = 0
+        var strikeCount: Int = 0
+        var ballCount: Int = 0
         if inning.pitching.firstIndex(of: answer.first) != nil {
             if answer.first == inning.pitching[0] {
                 strikeCount += 1

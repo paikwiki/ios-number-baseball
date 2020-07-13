@@ -15,7 +15,7 @@ struct Answer: CustomStringConvertible {
     let third: Int
 
     init() {
-        var numberSet = Set<Int>()
+        var numberSet: Set<Int> = Set<Int>()
         while numberSet.count < 3 {
             numberSet.insert(Int(arc4random_uniform(10)))
         }
