@@ -9,7 +9,7 @@
 struct Inning: CustomStringConvertible {
 
     var pitching = [Int]()
-    var isThrowThreeBalls: Bool {
+    var endInning: Bool {
         pitching.count > 2
     }
     var description: String {

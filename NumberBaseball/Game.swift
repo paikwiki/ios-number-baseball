@@ -57,7 +57,7 @@ class Game {
             isOver == false
             else { return }
         inning.pitching.append(pitchNumber)
-        if inning.isThrowThreeBalls && isThreeStrikes {
+        if inning.endInning && isThreeStrikes {
             isOver = true
         }
     }
