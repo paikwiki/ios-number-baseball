@@ -13,12 +13,9 @@ struct Inning: CustomStringConvertible {
         pitching.count > 2
     }
     var description: String {
-        var pitchesCharaterArray = Array("_  _  _")
-        for index in 0..<pitching.count {
-            guard let pitchesStringIndex = pitchesCharaterArray.firstIndex(of: "_") else { break }
-            pitchesCharaterArray[pitchesStringIndex] = String.Element(String(pitching[index]))
-        }
-        return String(pitchesCharaterArray)
+        (0..<3).map({ index in
+            pitching.count > index ? String(pitching[index]) : "_"
+        }).joined(separator: "  ")
     }
 
 }
