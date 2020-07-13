@@ -62,7 +62,7 @@ class Game {
         }
     }
 
-    func getNextInning() {
+    func startNextInning() {
         inningCount += 1
         inning = Inning()
     }

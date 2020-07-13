@@ -65,7 +65,7 @@ class ViewController: UIViewController {
                 answerLabel.text = game.answer.description
                 showResult(finalResult: game.isThreeStrikes)
             }
-            game.getNextInning()
+            game.startNextInning()
         }
     }
 
