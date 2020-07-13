@@ -1,0 +1,2 @@
+opt_in_rules: # paths to include during linting. `--path` is ignored if present.
+  - explicit_type_interface
