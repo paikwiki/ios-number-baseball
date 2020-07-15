@@ -75,11 +75,11 @@ class ViewController: UIViewController {
     @IBAction func didTapReset(_ sender: UIButton) {
         // UI UPDATE
         answerLabel.text = "X   X   X"
-        inningViews.forEach({ inningView in
+        inningViews.forEach { inningView in
             // UI UPDATE
             inningView.value.pitchesLabel.text = "_  _  _"
             inningView.value.inningResultLabel.text = "-- --"
-        })
+        }
         game.reset()
     }
 

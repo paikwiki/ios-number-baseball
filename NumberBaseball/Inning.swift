@@ -13,9 +13,9 @@ struct Inning: CustomStringConvertible {
         pitching.count > 2
     }
     var description: String {
-        (0..<3).map({ index in
+        (0..<3).map { index in
             pitching.count > index ? String(pitching[index]) : "_"
-        }).joined(separator: "  ")
+        }.joined(separator: "  ")
     }
 
 }

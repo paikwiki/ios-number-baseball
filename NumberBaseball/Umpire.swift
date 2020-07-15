@@ -20,7 +20,7 @@ struct Umpire: CustomStringConvertible {
         let answerNumbers: [Int] = [answer.first, answer.second, answer.third]
         var strikeCount: Int = 0
         var ballCount: Int = 0
-        (0..<3).forEach({ index in
+        (0..<3).forEach { index in
             if inning.pitching.contains(answerNumbers[index]) {
                 if answerNumbers[index] == inning.pitching[index] {
                     strikeCount += 1
@@ -28,7 +28,7 @@ struct Umpire: CustomStringConvertible {
                     ballCount += 1
                 }
             }
-        })
+        }
         return (strikeCount: strikeCount, ballCount: ballCount)
     }
 
