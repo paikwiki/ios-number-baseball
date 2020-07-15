@@ -49,7 +49,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapNumber(_ sender: UIButton) {
-        guard let pitchNumber = Int(sender.currentTitle!)
+        guard
+            let tappedNumber = sender.currentTitle,
+            let pitchNumber = Int(tappedNumber)
             else { return }
 
         game.pitchABall(pitchNumber: pitchNumber)
@@ -75,8 +77,8 @@ class ViewController: UIViewController {
         answerLabel.text = "X   X   X"
         inningViews.forEach({ inningView in
             // UI UPDATE
-            inningView.value.pitchesLabel.text! = "_  _  _"
-            inningView.value.inningResultLabel.text! = "-- --"
+            inningView.value.pitchesLabel.text = "_  _  _"
+            inningView.value.inningResultLabel.text = "-- --"
         })
         game.reset()
     }

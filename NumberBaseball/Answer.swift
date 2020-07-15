@@ -19,9 +19,8 @@ struct Answer: CustomStringConvertible {
         while numberSet.count < 3 {
             numberSet.insert(Int(arc4random_uniform(10)))
         }
-        first = numberSet.popFirst()!
-        second = numberSet.popFirst()!
-        third = numberSet.popFirst()!
+        let answerNumbers: [Int] = Array(numberSet)
+        (first, second, third) = (answerNumbers[0], answerNumbers[1], answerNumbers[2])
         print(self.description)
     }
 
