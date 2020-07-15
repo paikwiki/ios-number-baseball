@@ -8,47 +8,20 @@
 
 class Game {
 
-    private(set) var answer: Answer
     private(set) var inning: Inning
+    private(set) var umpire: Umpire
     private(set) var totalInning: Int = 9
     private(set) var isOver: Bool  = false
     private(set) var inningCount: Int = 1
+    private(set) var gameResult: GameResult = .lose
+    private var inningResult: (strikeCount: Int, ballCount: Int) = (strikeCount: 0, ballCount: 0)
     var inningResultString: String {
-        var strikeCount: Int = 0
-        var ballCount: Int = 0
-        if inning.pitching.firstIndex(of: answer.first) != nil {
-            if answer.first == inning.pitching[0] {
-                strikeCount += 1
-            } else {
-                ballCount += 1
-            }
-        }
-        if inning.pitching.firstIndex(of: answer.second) != nil {
-            if answer.second == inning.pitching[1] {
-                strikeCount += 1
-            } else {
-                ballCount += 1
-            }
-        }
-        if inning.pitching.firstIndex(of: answer.third) != nil {
-            if answer.third == inning.pitching[2] {
-                strikeCount += 1
-            } else {
-                ballCount += 1
-            }
-        }
-
-        return "\(strikeCount)S \(ballCount)B"
-    }
-    var isThreeStrikes: Bool {
-        inning.pitching[0] == answer.first &&
-        inning.pitching[1] == answer.second &&
-        inning.pitching[2] == answer.third
+        "\(inningResult.strikeCount)S \(inningResult.ballCount)B"
     }
 
     init() {
-        self.answer = Answer()
         self.inning = Inning()
+        self.umpire = Umpire()
     }
 
     func pitchABall(pitchNumber: Int) {
@@ -57,14 +30,23 @@ class Game {
             isOver == false
             else { return }
         inning.pitching.append(pitchNumber)
-        if inning.isEnded && isThreeStrikes {
-            isOver = true
+        if inning.isEnded {
+            inningResult = umpire.judgePitching(inning: inning)
+            if inningResult.strikeCount == 3 {
+                gameResult = .win
+                isOver = true
+            }
         }
+
     }
 
     func startNextInning() {
         inningCount += 1
         inning = Inning()
+    }
+
+    func showAnswer() {
+        return
     }
 
     func gameOver() {
@@ -74,8 +56,9 @@ class Game {
     func reset() {
         isOver = false
         inningCount = 1
-        answer = Answer()
+        gameResult = .lose
         inning = Inning()
+        umpire = Umpire()
     }
 
 }

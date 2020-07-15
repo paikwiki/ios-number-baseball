@@ -39,8 +39,8 @@ class ViewController: UIViewController {
         ]
     }
 
-    private func showResult(finalResult: Bool) {
-        let resultMessage: String = finalResult ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
+    private func showResult(gameResult: GameResult) {
+        let resultMessage: String = gameResult == .win ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
         let resultAlert: UIAlertController = UIAlertController(title: "Game Over",
                                                                message: resultMessage, preferredStyle: .alert)
         let resultAlertAction: UIAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
@@ -63,8 +63,8 @@ class ViewController: UIViewController {
             }
             if game.isOver {
                 // UI UPDATE
-                answerLabel.text = game.answer.description
-                showResult(finalResult: game.isThreeStrikes)
+                answerLabel.text = game.umpire.description
+                showResult(gameResult: game.gameResult)
             }
             game.startNextInning()
         }
