@@ -11,12 +11,14 @@ class Game {
     private(set) var inning: Inning
     private(set) var umpire: Umpire
     private(set) var totalInning: Int = 9
-    private(set) var isOver: Bool  = false
     private(set) var inningCount: Int = 1
     private(set) var gameResult: GameResult = .lose
     private var inningResult: (strikeCount: Int, ballCount: Int) = (strikeCount: 0, ballCount: 0)
     var inningResultString: String {
         "\(inningResult.strikeCount)S \(inningResult.ballCount)B"
+    }
+    var isOver: Bool {
+         inningResult.strikeCount == 3 || (inningCount == totalInning && inning.pitching.count == 3)
     }
 
     init() {
@@ -34,7 +36,6 @@ class Game {
             inningResult = umpire.judgePitching(inning: inning)
             if inningResult.strikeCount == 3 {
                 gameResult = .win
-                isOver = true
             }
         }
 
@@ -49,13 +50,9 @@ class Game {
         return
     }
 
-    func gameOver() {
-        isOver = true
-    }
-
     func reset() {
-        isOver = false
         inningCount = 1
+        inningResult = (strikeCount: 0, ballCount: 0)
         gameResult = .lose
         inning = Inning()
         umpire = Umpire()
