@@ -21,21 +21,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var inningView08: InningView!
     @IBOutlet weak var inningView09: InningView!
 
-    private var inningViews: [Int: InningView] = [Int: InningView]()
+    private var inningViews: [InningView] = [InningView]()
     private var game: Game = Game()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         inningViews = [
-            1: inningView01,
-            2: inningView02,
-            3: inningView03,
-            4: inningView04,
-            5: inningView05,
-            6: inningView06,
-            7: inningView07,
-            8: inningView08,
-            9: inningView09
+            inningView01,
+            inningView02,
+            inningView03,
+            inningView04,
+            inningView05,
+            inningView06,
+            inningView07,
+            inningView08,
+            inningView09
         ]
     }
 
@@ -51,15 +51,16 @@ class ViewController: UIViewController {
     @IBAction func didTapNumber(_ sender: UIButton) {
         guard
             let tappedNumber = sender.currentTitle,
-            let pitchNumber = Int(tappedNumber)
+            let pitchNumber = Int(tappedNumber),
+            game.isOver == false
             else { return }
 
         game.pitchABall(pitchNumber: pitchNumber)
         // UI UPDATE
-        inningViews[game.inningCount]?.pitchesLabel.text = game.inning.description
+        inningViews[game.inningCount - 1].pitchesLabel.text = game.inning.description
         if game.inning.isEnded {
             // UI UPDATE
-            inningViews[game.inningCount]?.inningResultLabel.text = game.inningResultString
+            inningViews[game.inningCount - 1].inningResultLabel.text = game.inningResultString
             if game.totalInning == game.inningCount {
                 game.gameOver()
             }
@@ -77,8 +78,8 @@ class ViewController: UIViewController {
         answerLabel.text = "X   X   X"
         inningViews.forEach { inningView in
             // UI UPDATE
-            inningView.value.pitchesLabel.text = "_  _  _"
-            inningView.value.inningResultLabel.text = "-- --"
+            inningView.pitchesLabel.text = "_  _  _"
+            inningView.inningResultLabel.text = "-- --"
         }
         game.reset()
     }
