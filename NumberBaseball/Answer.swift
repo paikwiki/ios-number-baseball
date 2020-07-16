@@ -28,4 +28,20 @@ struct Answer: CustomStringConvertible {
         "\(first)   \(second)   \(third)"
     }
 
+    func judgePitching(inning: Inning) -> (strikeCount: Int, ballCount: Int) {
+        let answerNumbers: [Int] = [first, second, third]
+        var strikeCount: Int = 0
+        var ballCount: Int = 0
+        (0..<3).forEach { index in
+            if inning.pitching.contains(answerNumbers[index]) {
+                if answerNumbers[index] == inning.pitching[index] {
+                    strikeCount += 1
+                } else {
+                    ballCount += 1
+                }
+            }
+        }
+        return (strikeCount: strikeCount, ballCount: ballCount)
+    }
+
 }

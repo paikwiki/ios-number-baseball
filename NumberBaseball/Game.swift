@@ -9,7 +9,7 @@
 class Game {
 
     private(set) var inning: Inning
-    private(set) var umpire: Umpire
+    private(set) var answer: Answer
     private(set) var totalInning: Int = 9
     private(set) var inningCount: Int = 1
     private(set) var gameResult: GameResult = .lose
@@ -23,7 +23,7 @@ class Game {
 
     init() {
         self.inning = Inning()
-        self.umpire = Umpire()
+        self.answer = Answer()
     }
 
     func pitchABall(pitchNumber: Int) {
@@ -33,7 +33,7 @@ class Game {
             else { return }
         inning.pitching.append(pitchNumber)
         if inning.isEnded {
-            inningResult = umpire.judgePitching(inning: inning)
+            inningResult = answer.judgePitching(inning: inning)
             if inningResult.strikeCount == 3 {
                 gameResult = .win
             }
@@ -51,7 +51,7 @@ class Game {
         inningResult = (strikeCount: 0, ballCount: 0)
         gameResult = .lose
         inning = Inning()
-        umpire = Umpire()
+        answer = Answer()
     }
 
 }

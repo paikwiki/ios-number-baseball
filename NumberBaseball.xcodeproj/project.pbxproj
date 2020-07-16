@@ -11,7 +11,6 @@
 		4A49904824B1D2600037AED1 /* Inning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904724B1D2600037AED1 /* Inning.swift */; };
 		4A49904A24B1F5920037AED1 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904924B1F5920037AED1 /* Answer.swift */; };
 		4A49904C24B293FB0037AED1 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49904B24B293FB0037AED1 /* Game.swift */; };
-		9943996024BEC3B5001E8395 /* Umpire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943995F24BEC3B5001E8395 /* Umpire.swift */; };
 		9943996224BECE50001E8395 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9943996124BECE50001E8395 /* GameResult.swift */; };
 		99846F0A24B58F6E00714BF9 /* InningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99846F0924B58F6E00714BF9 /* InningView.swift */; };
 		99938E042459904C00ADE2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99938E032459904C00ADE2DF /* AppDelegate.swift */; };
@@ -29,7 +28,6 @@
 		4A49904B24B293FB0037AED1 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		7BA52EF4AA24362628790E05 /* Pods-NumberBaseball.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumberBaseball.debug.xcconfig"; path = "Target Support Files/Pods-NumberBaseball/Pods-NumberBaseball.debug.xcconfig"; sourceTree = "<group>"; };
 		7BF31820BA6EA8A13BE1A565 /* Pods_NumberBaseball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NumberBaseball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9943995F24BEC3B5001E8395 /* Umpire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Umpire.swift; sourceTree = "<group>"; };
 		9943996124BECE50001E8395 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		99846F0924B58F6E00714BF9 /* InningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningView.swift; sourceTree = "<group>"; };
 		99938E002459904C00ADE2DF /* NumberBaseball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberBaseball.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +97,6 @@
 				4A49904B24B293FB0037AED1 /* Game.swift */,
 				4A49904724B1D2600037AED1 /* Inning.swift */,
 				4A49904924B1F5920037AED1 /* Answer.swift */,
-				9943995F24BEC3B5001E8395 /* Umpire.swift */,
 				9943996124BECE50001E8395 /* GameResult.swift */,
 				99846F0924B58F6E00714BF9 /* InningView.swift */,
 				99938E112459905000ADE2DF /* Info.plist */,
@@ -225,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				99938E082459904C00ADE2DF /* ViewController.swift in Sources */,
-				9943996024BEC3B5001E8395 /* Umpire.swift in Sources */,
 				99846F0A24B58F6E00714BF9 /* InningView.swift in Sources */,
 				4A49904C24B293FB0037AED1 /* Game.swift in Sources */,
 				99938E042459904C00ADE2DF /* AppDelegate.swift in Sources */,

@@ -63,7 +63,7 @@ class ViewController: UIViewController {
             inningViews[game.inningCount - 1].inningResultLabel.text = game.inningResultString
             if game.isOver {
                 // UI UPDATE
-                answerLabel.text = game.umpire.description
+                answerLabel.text = game.answer.description
                 showResult(gameResult: game.gameResult)
             } else {
                 game.startNextInning()
