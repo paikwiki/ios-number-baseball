@@ -79,7 +79,7 @@ class ViewController: UIViewController {
             inningView.pitchesLabel.text = "_  _  _"
             inningView.inningResultLabel.text = "-- --"
         }
-        game.reset()
+        game = Game()
     }
 
 }

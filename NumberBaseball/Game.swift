@@ -46,12 +46,4 @@ class Game {
         inning = Inning()
     }
 
-    func reset() {
-        inningCount = 1
-        inningResult = (strikeCount: 0, ballCount: 0)
-        gameResult = false
-        inning = Inning()
-        answer = Answer()
-    }
-
 }
