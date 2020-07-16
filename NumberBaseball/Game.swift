@@ -18,7 +18,7 @@ class Game {
         "\(inningResult.strikeCount)S \(inningResult.ballCount)B"
     }
     var isOver: Bool {
-         inningResult.strikeCount == 3 || (inningCount == totalInning && inning.pitching.count == 3)
+         inningResult.strikeCount == 3 || (inningCount == totalInning && inning.isEnded)
     }
 
     init() {
