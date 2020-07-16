@@ -8,47 +8,42 @@
 
 class Game {
 
-    private let answer: Answer
-    private let inning: Inning
-    private(set) var totalInning = 9
-    private(set) var isOver = false
+    private(set) var inning: Inning
+    private(set) var answer: Answer
+    private(set) var totalInning: Int = 9
+    private(set) var inningCount: Int = 1
+    private(set) var gameResult: Bool = false
+    private var inningResult: (strikeCount: Int, ballCount: Int) = (strikeCount: 0, ballCount: 0)
     var inningResultString: String {
-        var strikeCount = 0
-        var ballCount = 0
-        let answerNumbers = answer.answer
-        let pitchNumbers = inning.pitches
+        "\(inningResult.strikeCount)S \(inningResult.ballCount)B"
+    }
+    var isOver: Bool {
+         inningResult.strikeCount == 3 || (inningCount == totalInning && inning.isEnded)
+    }
 
-        for index in 0..<answerNumbers.count {
-            if pitchNumbers.contains(answerNumbers[index]) {
-                if pitchNumbers[index] == answerNumbers[index] {
-                  strikeCount += 1
-                } else {
-                    ballCount += 1
-                }
+    init() {
+        self.inning = Inning()
+        self.answer = Answer()
+    }
+
+    func pitchABall(pitchNumber: Int) {
+        guard
+            inning.pitching.contains(pitchNumber) == false,
+            isOver == false
+            else { return }
+        inning.pitching.append(pitchNumber)
+        if inning.isEnded {
+            inningResult = answer.judgePitching(inning: inning)
+            if inningResult.strikeCount == 3 {
+                gameResult = true
             }
         }
-        return "\(strikeCount)S \(ballCount)B"
+
     }
 
-    init(answer: Answer, inning: Inning) {
-        self.answer = answer
-        self.inning = inning
-    }
-
-    func isThreeStrikes() -> Bool {
-        inning.pitches == answer.answer
-    }
-
-    func gameOver() {
-        isOver = true
-        print("GAME OVER")
-    }
-
-    func reset() {
-        isOver = false
-        inning.resetPitches()
-        inning.resetInningCount()
-        answer.resetAnswer()
+    func startNextInning() {
+        inningCount += 1
+        inning = Inning()
     }
 
 }

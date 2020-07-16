@@ -6,36 +6,42 @@
 //  Copyright © 2020 Changhyun Baek. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Answer {
+struct Answer: CustomStringConvertible {
 
-    private(set) var answer = [Character]()
+    let first: Int
+    let second: Int
+    let third: Int
 
     init() {
-        answer = createAnswer()
-    }
-
-    private func createAnswer() -> [Character] {
-        var answerSet = Set<Character>()
-        while answerSet.count < 3 {
-            answerSet.insert( Character(String(Int(arc4random_uniform(10)))) )
+        var numberSet: Set<Int> = Set<Int>()
+        while numberSet.count < 3 {
+            numberSet.insert(Int(arc4random_uniform(10)))
         }
-        print(Array(answerSet))
-        return Array(answerSet)
+        let answerNumbers: [Int] = Array(numberSet)
+        (first, second, third) = (answerNumbers[0], answerNumbers[1], answerNumbers[2])
+        print(self.description)
     }
-
-    func resetAnswer() {
-        answer.removeAll()
-        answer = createAnswer()
-    }
-
-}
-
-extension Answer: CustomStringConvertible {
 
     var description: String {
-        "\(answer[0])   \(answer[1])   \(answer[2])"
+        "\(first)   \(second)   \(third)"
+    }
+
+    func judgePitching(inning: Inning) -> (strikeCount: Int, ballCount: Int) {
+        let answerNumbers: [Int] = [first, second, third]
+        var strikeCount: Int = 0
+        var ballCount: Int = 0
+        (0..<3).forEach { index in
+            if inning.pitching.contains(answerNumbers[index]) {
+                if answerNumbers[index] == inning.pitching[index] {
+                    strikeCount += 1
+                } else {
+                    ballCount += 1
+                }
+            }
+        }
+        return (strikeCount: strikeCount, ballCount: ballCount)
     }
 
 }

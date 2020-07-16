@@ -90,15 +90,15 @@
 			children = (
 				99938E032459904C00ADE2DF /* AppDelegate.swift */,
 				99938E052459904C00ADE2DF /* SceneDelegate.swift */,
-				99938E092459904C00ADE2DF /* Main.storyboard */,
 				99938E072459904C00ADE2DF /* ViewController.swift */,
-				99938E0C2459905000ADE2DF /* Assets.xcassets */,
-				99938E0E2459905000ADE2DF /* LaunchScreen.storyboard */,
+				99938E092459904C00ADE2DF /* Main.storyboard */,
 				4A49904B24B293FB0037AED1 /* Game.swift */,
-				99938E112459905000ADE2DF /* Info.plist */,
 				4A49904724B1D2600037AED1 /* Inning.swift */,
 				4A49904924B1F5920037AED1 /* Answer.swift */,
 				99846F0924B58F6E00714BF9 /* InningView.swift */,
+				99938E112459905000ADE2DF /* Info.plist */,
+				99938E0C2459905000ADE2DF /* Assets.xcassets */,
+				99938E0E2459905000ADE2DF /* LaunchScreen.storyboard */,
 			);
 			path = NumberBaseball;
 			sourceTree = "<group>";

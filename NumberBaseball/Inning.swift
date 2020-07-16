@@ -6,36 +6,16 @@
 //  Copyright © 2020 Changhyun Baek. All rights reserved.
 //
 
-class Inning {
+struct Inning: CustomStringConvertible {
 
-    private(set) var inningCount = 1
-    private(set) var pitches = [Character]()
-    var pitchesString: String {
-        var pitchesCharaterArray = Array("_  _  _")
-        for index in 0..<pitches.count {
-            guard let pitchesStringIndex = pitchesCharaterArray.firstIndex(of: "_") else { break }
-            pitchesCharaterArray[pitchesStringIndex] = String.Element(String(pitches[index]))
-        }
-        return String(pitchesCharaterArray)
+    var pitching: [Int] = [Int]()
+    var isEnded: Bool {
+        pitching.count > 2
     }
-    var isThrowThreeBalls: Bool {
-        pitches.count > 2
-    }
-
-    func resetPitches() {
-        pitches.removeAll()
-    }
-
-    func pitchABall(pitchNumber: Character) {
-        pitches.append(pitchNumber)
-    }
-
-    func increaseInningCount() {
-        inningCount += 1
-    }
-
-    func resetInningCount() {
-        inningCount = 1
+    var description: String {
+        (0..<3).map { index in
+            pitching.count > index ? String(pitching[index]) : "_"
+        }.joined(separator: "  ")
     }
 
 }
