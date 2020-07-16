@@ -12,7 +12,7 @@ class Game {
     private(set) var answer: Answer
     private(set) var totalInning: Int = 9
     private(set) var inningCount: Int = 1
-    private(set) var gameResult: GameResult = .lose
+    private(set) var gameResult: Bool = false
     private var inningResult: (strikeCount: Int, ballCount: Int) = (strikeCount: 0, ballCount: 0)
     var inningResultString: String {
         "\(inningResult.strikeCount)S \(inningResult.ballCount)B"
@@ -35,7 +35,7 @@ class Game {
         if inning.isEnded {
             inningResult = answer.judgePitching(inning: inning)
             if inningResult.strikeCount == 3 {
-                gameResult = .win
+                gameResult = true
             }
         }
 
@@ -49,7 +49,7 @@ class Game {
     func reset() {
         inningCount = 1
         inningResult = (strikeCount: 0, ballCount: 0)
-        gameResult = .lose
+        gameResult = false
         inning = Inning()
         answer = Answer()
     }
