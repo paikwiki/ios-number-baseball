@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GameDelegate {
 
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var inningView01: InningView!
@@ -37,6 +37,7 @@ class ViewController: UIViewController {
             inningView08,
             inningView09
         ]
+        game.delegate = self
     }
 
     private func showResult(gameResult: Bool) {
@@ -47,6 +48,9 @@ class ViewController: UIViewController {
         resultAlert.addAction(resultAlertAction)
         present(resultAlert, animated: true)
     }
+    func test() {
+        print("test")
+    }
 
     @IBAction func didTapNumber(_ sender: UIButton) {
         guard
@@ -54,7 +58,7 @@ class ViewController: UIViewController {
             let pitchNumber = Int(tappedNumber),
             game.isOver == false
             else { return }
-
+        game.test()
         game.pitchABall(pitchNumber: pitchNumber)
         inningViews[game.inningCount - 1].pitchesLabel.text = game.inning.description
         if game.inning.isEnded {

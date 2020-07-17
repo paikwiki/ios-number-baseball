@@ -7,7 +7,7 @@
 //
 
 class Game {
-
+    weak var delegate: GameDelegate?
     private(set) var inning: Inning
     private(set) var answer: Answer
     private(set) var totalInning: Int = 9
@@ -44,6 +44,10 @@ class Game {
     func startNextInning() {
         inningCount += 1
         inning = Inning()
+    }
+
+    func test() {
+        delegate?.test()
     }
 
 }
