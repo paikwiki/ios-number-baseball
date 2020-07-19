@@ -40,7 +40,7 @@ class ViewController: UIViewController, GameDelegate {
         game.delegate = self
     }
 
-    private func showResult(gameResult: Bool) {
+    func showResult(gameResult: Bool) {
         let resultMessage: String = gameResult == true ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
         let resultAlert: UIAlertController = UIAlertController(title: "Game Over",
                                                                message: resultMessage, preferredStyle: .alert)
@@ -48,37 +48,35 @@ class ViewController: UIViewController, GameDelegate {
         resultAlert.addAction(resultAlertAction)
         present(resultAlert, animated: true)
     }
-    func test() {
-        print("test")
-    }
 
-    @IBAction func didTapNumber(_ sender: UIButton) {
-        guard
-            let tappedNumber = sender.currentTitle,
-            let pitchNumber = Int(tappedNumber),
-            game.isOver == false
-            else { return }
-        game.test()
-        game.pitchABall(pitchNumber: pitchNumber)
+    func updateUILabels() {
         inningViews[game.inningCount - 1].pitchesLabel.text = game.inning.description
         if game.inning.isEnded {
             inningViews[game.inningCount - 1].inningResultLabel.text = game.inningResultString
             if game.isOver {
                 answerLabel.text = game.answer.description
-                showResult(gameResult: game.gameResult)
-            } else {
-                game.startNextInning()
             }
         }
     }
 
-    @IBAction func didTapReset(_ sender: UIButton) {
+    func resetUILabels() {
         answerLabel.text = "X   X   X"
         inningViews.forEach { inningView in
             inningView.pitchesLabel.text = "_  _  _"
             inningView.inningResultLabel.text = "-- --"
         }
-        game = Game()
+    }
+
+    @IBAction func didTapNumber(_ sender: UIButton) {
+        guard
+            let tappedNumber = sender.currentTitle,
+            let pitchNumber = Int(tappedNumber)
+            else { return }
+        game.pitchABall(pitchNumber: pitchNumber)
+    }
+
+    @IBAction func didTapReset(_ sender: UIButton) {
+        game.reset()
     }
 
 }

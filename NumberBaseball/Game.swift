@@ -26,6 +26,18 @@ class Game {
         self.answer = Answer()
     }
 
+    func updateUILabels() {
+        delegate?.updateUILabels()
+    }
+
+    func resetUILabels() {
+        delegate?.resetUILabels()
+    }
+
+    func showResult(gameResult: Bool) {
+        delegate?.showResult(gameResult: gameResult)
+    }
+
     func pitchABall(pitchNumber: Int) {
         guard
             inning.pitching.contains(pitchNumber) == false,
@@ -38,7 +50,12 @@ class Game {
                 gameResult = true
             }
         }
-
+        updateUILabels()
+        if inning.isEnded {
+            isOver == true ?
+                showResult(gameResult: gameResult) :
+                startNextInning()
+        }
     }
 
     func startNextInning() {
@@ -46,8 +63,13 @@ class Game {
         inning = Inning()
     }
 
-    func test() {
-        delegate?.test()
+    func reset() {
+        inningCount = 1
+        inningResult = (strikeCount: 0, ballCount: 0)
+        gameResult = false
+        inning = Inning()
+        answer = Answer()
+        resetUILabels()
     }
 
 }

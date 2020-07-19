@@ -7,5 +7,7 @@
 //
 
 protocol GameDelegate: class {
-    func test()
+    func updateUILabels()
+    func resetUILabels()
+    func showResult(gameResult: Bool)
 }
