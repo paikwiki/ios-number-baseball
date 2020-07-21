@@ -44,7 +44,7 @@ class Game {
         delegate?.gameShouldEnd(isThreeStrkes: isThreeStrkes, answerString: answer.description)
     }
 
-    func pitchABall(pitchNumber: Int) {
+    func doPitching(pitchNumber: Int) {
         guard
             inning.pitching.contains(pitchNumber) == false,
             isOver == false

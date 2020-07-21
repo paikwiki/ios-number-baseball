@@ -71,7 +71,7 @@ class ViewController: UIViewController, GameDelegate {
             let tappedNumber = sender.currentTitle,
             let pitchNumber = Int(tappedNumber)
             else { return }
-        game.pitchABall(pitchNumber: pitchNumber)
+        game.doPitching(pitchNumber: pitchNumber)
     }
 
     @IBAction func didTapReset(_ sender: UIButton) {
