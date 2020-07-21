@@ -10,5 +10,5 @@ protocol GameDelegate: class {
     func gameDidPitch(pitchString: String)
     func gameShouldEndInning(inningResultString: String)
     func gameShouldRestart()
-    func gameShouldEnd(gameResult: Bool, answerString: String)
+    func gameShouldEnd(isThreeStrkes: Bool, answerString: String)
 }

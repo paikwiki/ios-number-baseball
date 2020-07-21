@@ -12,13 +12,15 @@ class Game {
     private(set) var answer: Answer
     private(set) var totalInning: Int = 9
     private(set) var inningCount: Int = 1
-    private(set) var gameResult: Bool = false
     private var inningResult: (strikeCount: Int, ballCount: Int) = (strikeCount: 0, ballCount: 0)
     var inningResultString: String {
         "\(inningResult.strikeCount)S \(inningResult.ballCount)B"
     }
+    var isThreeStrkes: Bool {
+         inningResult.strikeCount == 3
+    }
     var isOver: Bool {
-         inningResult.strikeCount == 3 || (inningCount == totalInning && inning.isEnded)
+         isThreeStrkes == true || (inningCount == totalInning && inning.isEnded)
     }
 
     init() {
@@ -38,8 +40,8 @@ class Game {
         delegate?.gameShouldRestart()
     }
 
-    func gameShouldEnd(gameResult: Bool, answerString: String) {
-        delegate?.gameShouldEnd(gameResult: gameResult, answerString: answer.description)
+    func gameShouldEnd(isThreeStrkes: Bool, answerString: String) {
+        delegate?.gameShouldEnd(isThreeStrkes: isThreeStrkes, answerString: answer.description)
     }
 
     func pitchABall(pitchNumber: Int) {
@@ -52,11 +54,8 @@ class Game {
         if inning.isEnded {
             inningResult = answer.judgePitching(inning: inning)
             gameShouldEndInning(inningResultString: inningResultString)
-            if inningResult.strikeCount == 3 {
-                gameResult = true
-            }
             isOver == true ?
-                gameShouldEnd(gameResult: gameResult, answerString: answer.description) :
+                gameShouldEnd(isThreeStrkes: isThreeStrkes, answerString: answer.description) :
                 startNextInning()
         }
     }
@@ -69,7 +68,6 @@ class Game {
     func reset() {
         inningCount = 1
         inningResult = (strikeCount: 0, ballCount: 0)
-        gameResult = false
         inning = Inning()
         answer = Answer()
         gameShoudRestart()

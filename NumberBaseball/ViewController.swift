@@ -40,9 +40,9 @@ class ViewController: UIViewController, GameDelegate {
         game.delegate = self
     }
 
-    func gameShouldEnd(gameResult: Bool, answerString: String) {
+    func gameShouldEnd(isThreeStrkes: Bool, answerString: String) {
         answerLabel.text = answerString
-        let resultMessage: String = gameResult == true ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
+        let resultMessage: String = isThreeStrkes == true ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
         let resultAlert: UIAlertController = UIAlertController(title: "Game Over",
                                                                message: resultMessage, preferredStyle: .alert)
         let resultAlertAction: UIAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
