@@ -26,16 +26,20 @@ class Game {
         self.answer = Answer()
     }
 
-    func updateUILabels() {
-        delegate?.updateUILabels()
+    func gameDidPitch(pitchString: String) {
+        delegate?.gameDidPitch(pitchString: inning.description)
     }
 
-    func resetUILabels() {
-        delegate?.resetUILabels()
+    func gameShouldEndInning(inningResultString: String) {
+        delegate?.gameShouldEndInning(inningResultString: inningResultString)
     }
 
-    func showResult(gameResult: Bool) {
-        delegate?.showResult(gameResult: gameResult)
+    func gameShoudRestart() {
+        delegate?.gameShouldRestart()
+    }
+
+    func gameShouldEnd(gameResult: Bool, answerString: String) {
+        delegate?.gameShouldEnd(gameResult: gameResult, answerString: answer.description)
     }
 
     func pitchABall(pitchNumber: Int) {
@@ -44,16 +48,15 @@ class Game {
             isOver == false
             else { return }
         inning.pitching.append(pitchNumber)
+        gameDidPitch(pitchString: inning.description)
         if inning.isEnded {
             inningResult = answer.judgePitching(inning: inning)
+            gameShouldEndInning(inningResultString: inningResultString)
             if inningResult.strikeCount == 3 {
                 gameResult = true
             }
-        }
-        updateUILabels()
-        if inning.isEnded {
             isOver == true ?
-                showResult(gameResult: gameResult) :
+                gameShouldEnd(gameResult: gameResult, answerString: answer.description) :
                 startNextInning()
         }
     }
@@ -69,7 +72,7 @@ class Game {
         gameResult = false
         inning = Inning()
         answer = Answer()
-        resetUILabels()
+        gameShoudRestart()
     }
 
 }

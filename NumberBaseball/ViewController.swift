@@ -40,7 +40,8 @@ class ViewController: UIViewController, GameDelegate {
         game.delegate = self
     }
 
-    func showResult(gameResult: Bool) {
+    func gameShouldEnd(gameResult: Bool, answerString: String) {
+        answerLabel.text = answerString
         let resultMessage: String = gameResult == true ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
         let resultAlert: UIAlertController = UIAlertController(title: "Game Over",
                                                                message: resultMessage, preferredStyle: .alert)
@@ -49,17 +50,15 @@ class ViewController: UIViewController, GameDelegate {
         present(resultAlert, animated: true)
     }
 
-    func updateUILabels() {
-        inningViews[game.inningCount - 1].pitchesLabel.text = game.inning.description
-        if game.inning.isEnded {
-            inningViews[game.inningCount - 1].inningResultLabel.text = game.inningResultString
-            if game.isOver {
-                answerLabel.text = game.answer.description
-            }
-        }
+    func gameDidPitch(pitchString: String) {
+        inningViews[game.inningCount - 1].pitchesLabel.text = pitchString
     }
 
-    func resetUILabels() {
+    func gameShouldEndInning(inningResultString: String) {
+        inningViews[game.inningCount - 1].inningResultLabel.text = inningResultString
+    }
+
+    func gameShouldRestart() {
         answerLabel.text = "X   X   X"
         inningViews.forEach { inningView in
             inningView.pitchesLabel.text = "_  _  _"

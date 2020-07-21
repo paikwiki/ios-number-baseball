@@ -7,7 +7,8 @@
 //
 
 protocol GameDelegate: class {
-    func updateUILabels()
-    func resetUILabels()
-    func showResult(gameResult: Bool)
+    func gameDidPitch(pitchString: String)
+    func gameShouldEndInning(inningResultString: String)
+    func gameShouldRestart()
+    func gameShouldEnd(gameResult: Bool, answerString: String)
 }
