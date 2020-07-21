@@ -51,18 +51,20 @@ class Game {
             else { return }
         inning.pitching.append(pitchNumber)
         gameDidPitch(pitchString: inning.description)
-        if inning.isEnded {
-            inningResult = answer.judgePitching(inning: inning)
-            gameShouldEndInning(inningResultString: inningResultString)
-            isOver == true ?
-                gameShouldEnd(isThreeStrkes: isThreeStrkes, answerString: answer.description) :
-                startNextInning()
+        if inning.isEnded == true {
+            finishCurrentInning()
         }
     }
 
-    func startNextInning() {
-        inningCount += 1
-        inning = Inning()
+    func finishCurrentInning() {
+        inningResult = answer.judgePitching(inning: inning)
+        gameShouldEndInning(inningResultString: inningResultString)
+        if isOver == true {
+            gameShouldEnd(isThreeStrkes: isThreeStrkes, answerString: answer.description)
+        } else {
+            inningCount += 1
+            inning = Inning()
+        }
     }
 
     func reset() {
