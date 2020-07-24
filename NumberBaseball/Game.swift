@@ -32,16 +32,12 @@ class Game {
         delegate?.gameDidPitch(pitchString: inning.description)
     }
 
-    func gameShouldEndInning(inningResultString: String) {
-        delegate?.gameShouldEndInning(inningResultString: inningResultString)
+    func gameDidFinish(_ game: Game) {
+        delegate?.gameDidFinish(self)
     }
 
-    func gameShoudRestart() {
-        delegate?.gameShouldRestart()
-    }
-
-    func gameShouldEnd(isThreeStrkes: Bool, answerString: String) {
-        delegate?.gameShouldEnd(isThreeStrkes: isThreeStrkes, answerString: answer.description)
+    func game(_ game: Game, didEndInning inning: Inning, inningResultString: String) {
+        delegate?.game(self, didEndInning: inning, inningResultString: inningResultString)
     }
 
     func doPitching(pitchNumber: Int) {
@@ -58,9 +54,9 @@ class Game {
 
     func finishCurrentInning() {
         inningResult = answer.judgePitching(inning: inning)
-        gameShouldEndInning(inningResultString: inningResultString)
+        game(self, didEndInning: inning, inningResultString: inningResultString)
         if isOver == true {
-            gameShouldEnd(isThreeStrkes: isThreeStrkes, answerString: answer.description)
+            gameDidFinish(self)
         } else {
             inningCount += 1
             inning = Inning()
@@ -72,7 +68,6 @@ class Game {
         inningResult = (strikeCount: 0, ballCount: 0)
         inning = Inning()
         answer = Answer()
-        gameShoudRestart()
     }
 
 }

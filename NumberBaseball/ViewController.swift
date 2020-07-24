@@ -40,9 +40,9 @@ class ViewController: UIViewController, GameDelegate {
         game.delegate = self
     }
 
-    func gameShouldEnd(isThreeStrkes: Bool, answerString: String) {
-        answerLabel.text = answerString
-        let resultMessage: String = isThreeStrkes == true ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
+    func gameDidFinish(_ game: Game) {
+        answerLabel.text = game.answer.description
+        let resultMessage: String = game.isThreeStrkes == true ? "👯‍♀️💃🏻👯‍♀️ 🎉YOU WIN🎉 👯‍♀️🕺🏼👯‍♀️" : "🎭 😭YOU LOSE😭 🎭"
         let resultAlert: UIAlertController = UIAlertController(title: "Game Over",
                                                                message: resultMessage, preferredStyle: .alert)
         let resultAlertAction: UIAlertAction = UIAlertAction(title: "OK👌🏾", style: .default, handler: nil)
@@ -54,16 +54,8 @@ class ViewController: UIViewController, GameDelegate {
         inningViews[game.inningCount - 1].pitchesLabel.text = pitchString
     }
 
-    func gameShouldEndInning(inningResultString: String) {
+    func game(_ game: Game, didEndInning inning: Inning, inningResultString: String) {
         inningViews[game.inningCount - 1].inningResultLabel.text = inningResultString
-    }
-
-    func gameShouldRestart() {
-        answerLabel.text = "X   X   X"
-        inningViews.forEach { inningView in
-            inningView.pitchesLabel.text = "_  _  _"
-            inningView.inningResultLabel.text = "-- --"
-        }
     }
 
     @IBAction func didTapNumber(_ sender: UIButton) {
@@ -72,9 +64,15 @@ class ViewController: UIViewController, GameDelegate {
             let pitchNumber = Int(tappedNumber)
             else { return }
         game.doPitching(pitchNumber: pitchNumber)
+        inningViews[game.inningCount - 1].pitchesLabel.text = game.inning.description
     }
 
     @IBAction func didTapReset(_ sender: UIButton) {
+        answerLabel.text = "X   X   X"
+        inningViews.forEach { inningView in
+            inningView.pitchesLabel.text = "_  _  _"
+            inningView.inningResultLabel.text = "-- --"
+        }
         game.reset()
     }
 

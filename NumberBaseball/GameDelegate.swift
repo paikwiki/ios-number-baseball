@@ -8,7 +8,6 @@
 
 protocol GameDelegate: class {
     func gameDidPitch(pitchString: String)
-    func gameShouldEndInning(inningResultString: String)
-    func gameShouldRestart()
-    func gameShouldEnd(isThreeStrkes: Bool, answerString: String)
+    func gameDidFinish(_ game: Game)
+    func game(_ game: Game, didEndInning inning: Inning, inningResultString: String)
 }
