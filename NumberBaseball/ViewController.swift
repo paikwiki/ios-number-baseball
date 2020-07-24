@@ -64,7 +64,6 @@ class ViewController: UIViewController, GameDelegate {
             let pitchNumber = Int(tappedNumber)
             else { return }
         game.doPitching(pitchNumber: pitchNumber)
-        inningViews[game.inningCount - 1].pitchesLabel.text = game.inning.description
     }
 
     @IBAction func didTapReset(_ sender: UIButton) {
